@@ -1,0 +1,21 @@
+# Yakuma
+
+> Yakuma is an independent digital product studio that designs and builds premium software, games, and interactive digital products. It also develops Hoshi: Star Sudoku, a free-to-play mobile puzzle game for iOS and Android.
+
+The site is available in English and German. The links below point to the English pages; equivalent German pages use the same route under `/de` instead of `/en`. Prioritize the services and Hoshi pages for information about Yakuma's work. Store links and Hoshi launch dates may change.
+
+## Studio and services
+
+- [Yakuma](https://www.yakuma.de/en): Studio overview, contact information, services, and featured projects.
+- [Software engineering](https://www.yakuma.de/en/services/software-engineering): Product architecture, app and backend development, integrations, implementation, testing, and iteration.
+- [Game design](https://www.yakuma.de/en/services/game-design): Game concepts, mechanics, prototypes, progression, game UI, and polish.
+- [Interactive product design](https://www.yakuma.de/en/services/interactive-product-design): User flows, interfaces, reusable components, interaction states, and engineering handoff.
+
+## Hoshi: Star Sudoku
+
+- [Hoshi: Star Sudoku](https://www.yakuma.de/en/games/hoshi): Game overview, gameplay, triangle-board Sudoku mechanics, guided tactics, progression, and FAQs.
+- [Download Hoshi](https://www.yakuma.de/en/games/hoshi/download): Current iOS and Android download information. Official store links are still being prepared.
+
+## Optional
+
+- [Hoshi news](https://www.yakuma.de/en/games/hoshi/news/the-first-boards): The first playable board set and early release information; timing is provisional.

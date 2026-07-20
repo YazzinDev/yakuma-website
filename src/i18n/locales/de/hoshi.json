@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "title": "Hoshi: Star Sudoku | Yakuma",
+    "description": "Hoshi: Star Sudoku ist ein kostenlos spielbares Dreiecks-Sudoku mit geführten Taktiken, Fortschrittssystem und handgebauten Rätseln für iOS und Android."
+  },
+  "download": {
+    "meta": {
+      "title": "Hoshi: Star Sudoku herunterladen | Yakuma",
+      "description": "Lade Hoshi: Star Sudoku für iOS oder Android herunter. Wähle deine Plattform und starte mit Dreiecks-Sudoku, geführten Taktiken und motivierendem Fortschritt."
+    },
+    "eyebrow": "HOSHI JETZT HERUNTERLADEN",
+    "title": "HOSHI JETZT HERUNTER\u00adLADEN",
+    "body": "Wähle deine Plattform und starte Hoshi: Star Sudoku – ein frisches Dreiecks-Sudoku-Erlebnis für konzentriertes Spielen unterwegs.",
+    "fallback": "Die Store-Links werden vorbereitet. Entdecke Hoshi jetzt und kehre zurück, sobald die offiziellen Download-Links live sind.",
+    "redirecting": {
+      "ios": "App Store wird geöffnet …",
+      "android": "Google Play wird geöffnet …"
+    },
+    "backToHoshi": "HOSHI ENTDECKEN",
+    "imageAlt": "Hoshi: Star Sudoku Download-Vorschau"
+  },
+  "nav": {
+    "about": "ÜBER DAS SPIEL",
+    "gameplay": "SPIELABLAUF",
+    "news": "NEUIGKEITEN",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "eyebrow": "FREE TO PLAY / IOS + ANDROID",
+    "title": "HOSHI: STAR SUDOKU",
+    "subtitle": "Ein ruhiges, cleveres Sudoku-Spiel mit Dreiecks-Rätseln, geführten Taktiken und langfristigem Fortschritt, damit sich jede Lösung sinnvoll anfühlt.",
+    "badges": {
+      "appStoreSmall": "Download im",
+      "appStore": "App Store",
+      "googlePlaySmall": "Jetzt bei",
+      "googlePlay": "Google Play",
+      "pending": "Store-Link folgt"
+    }
+  },
+  "images": {
+    "hero": "Hoshi: Star Sudoku Hero-Bild",
+    "trailer": "Hoshi Trailer-Vorschau als Platzhalterbild",
+    "board": "Hoshi Dreiecks-Sudoku-Platzhalterbild",
+    "finalDevice": "Hoshi: Star Sudoku Download-Platzhalterbild"
+  },
+  "twist": {
+    "eyebrow": "SUDOKU NEU GEDACHT",
+    "title": "SUDOKU 2 IST JETZT ERHÄLTLICH",
+    "description": "Hoshi behält das befriedigende Logikgefühl von Sudoku und verändert die Form des Problems. Dreiecksregionen, sternartige Pfade und klare Interaktionen auf Mobilgeräten lassen vertraute Deduktion frisch wirken, ohne den Einstieg unnötig kompliziert zu machen."
+  },
+  "trailer": {
+    "label": "Hoshi Trailer",
+    "pending": "Trailer folgt"
+  },
+  "loop": {
+    "eyebrow": "SPIELKERN",
+    "title": "LERNEN. ANPASSEN. MEISTERN.",
+    "cards": [
+      {
+        "title": "RÄTSEL LÖSEN",
+        "body": "Spiele Rätsel in verschiedenen Schwierigkeitsgraden von Einfach über Mittel und Schwer bis zu Expertenstufen, alle abgestimmt auf klare Deduktion und einen sauberen Lösungsfluss.",
+        "imageAlt": "Platzhalterbild für das Lösen von Hoshi-Rätseln"
+      },
+      {
+        "title": "TAKTIKEN LERNEN",
+        "body": "Verbessere deine Taktiken mit geführten Trainings, lerne die wichtigsten Hoshi-Sudoku-Strategien und wende sie direkt in passenden Rätseln an.",
+        "imageAlt": "Platzhalterbild für das Lernen neuer Hoshi-Taktiken"
+      },
+      {
+        "title": "AUFLEVELN",
+        "body": "Ein Quest- und Levelsystem sorgt für dauerhaften Fortschritt, exklusive Belohnungen, Anpassungen, App-Designs und Spielwährungen, während du Erfahrung sammelst.",
+        "imageAlt": "Platzhalterbild für den Hoshi-Fortschritt"
+      }
+    ],
+    "boardLabel": "TAKTIK-RÄTSEL",
+    "boardHint": "Trainiere Mustererkennung, schalte klarere Lösungswege frei und mache Dreieckslogik zur Routine.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Neue Taktiken lernen",
+        "body": "Lies Dreiecksregionen, Sternpfade und vertraute Sudoku-Regeln in einer neuen Formensprache."
+      },
+      {
+        "number": "02",
+        "title": "Schärfere Rätsel lösen",
+        "body": "Wechsle von ruhigen Einsteigerfeldern zu dichteren Rätseln, die räumliche Deduktion nutzen."
+      },
+      {
+        "number": "03",
+        "title": "Dein Können meistern",
+        "body": "Verfeinere deinen Flow, sammle Fortschritt und kehre für sauberere Lösungen und besseren Rhythmus zurück."
+      }
+    ]
+  },
+  "news": {
+    "eyebrow": "AKTUELLES VON HOSHI",
+    "title": "NEUIGKEITEN",
+    "description": "Updates, Veröffentlichungsnotizen, Feature-Vorschauen und Einblicke hinter die Kulissen des Dreiecks-Sudoku-Erlebnisses.",
+    "readLabel": "LESEN",
+    "backLabel": "ZURÜCK ZU NEWS",
+    "previousLabel": "Vorherige News",
+    "nextLabel": "Nächste News",
+    "skeletonLabel": "News folgt",
+    "items": [
+      {
+        "date": "ERSCHEINT 2026",
+        "slug": "the-first-boards",
+        "title": "DIE ERSTEN RÄTSEL",
+        "body": "Hoshi: Star Sudoku bereitet das erste spielbare Rätselset vor und gibt frühen Spielern einen ersten praktischen Blick auf Dreiecks-Sudoku, geführte Taktiken und Fortschritt.",
+        "href": "/de/games/hoshi/news/the-first-boards",
+        "metaDescription": "Die ersten Hoshi-Rätsel zeigen Dreiecks-Sudoku, frühes Onboarding, geführte Taktiken und die erste praktische Spielerfahrung.",
+        "content": [
+          "Hoshi: Star Sudoku bewegt sich auf das erste spielbare Veröffentlichungsfenster zu. Das erste Rätselset soll Spielern helfen, das Dreiecksformat schnell zu verstehen, sicher zu lösen und zu spüren, wie Hoshi vertraute Sudoku-Logik verändert, ohne die klare Freude an Deduktion zu verlieren.",
+          "Diese erste Spielerfahrung fokussiert lesbare Rätsel, saubere Steuerung auf Mobilgeräten und einen klaren Weg von einsteigerfreundlichen Aufgaben zu anspruchsvolleren Mustern. Spieler können frühe Schwierigkeitsstufen ausprobieren, erste Hoshi-Taktiken lernen und sehen, wie geführtes Training bessere Lösungen unterstützt.",
+          "Das hier gezeigte Veröffentlichungsdatum ist ein Platzhalter, bis der finale Startzeitpunkt feststeht. Das Ziel für diese erste Veröffentlichung ist klar: Die ersten Minuten sollen poliert, verständlich und so gut sein, dass man wiederkommen möchte."
+        ]
+      }
+    ],
+    "featured": {
+      "date": "2026",
+      "title": "DIE ERSTEN RÄTSEL NEHMEN FORM AN",
+      "body": "Das erste Hoshi-Rätselset fokussiert klare Dreiecksregionen, lesbare Deduktionspfade und einen sanften Free-to-Play-Einstieg."
+    },
+    "side": {
+      "title": "TAKTIK-NOTIZEN",
+      "body": "Neue Deduktionsmuster werden für Dreiecks-Rätsel abgestimmt."
+    }
+  },
+  "faq": {
+    "eyebrow": "HÄUFIGE FRAGEN",
+    "title": "WAS MACHT HOSHI ANDERS?",
+    "description": "Ein kurzer Leitfaden zum Dreiecks-Sudoku-Erlebnis, wie Yakuma es entwickelt und was Spieler beim kostenlosen Start erwarten können.",
+    "items": [
+      {
+        "question": "Was ist Hoshi: Star Sudoku?",
+        "answer": "Hoshi ist ein Sudoku-inspiriertes Rätselspiel auf einem einzigartig geformten Dreiecksbrett. Es behält das logische Sudoku-Gefühl bei und verändert, wie Spieler Regionen scannen, Muster lesen und Lösungstaktiken entwickeln."
+      },
+      {
+        "question": "Wer entwickelt Hoshi?",
+        "answer": "Hoshi wird von Yakuma entwickelt, dem unabhängigen Studio hinter Spielerlebnis, visueller Richtung und mobilem Rätselablauf."
+      },
+      {
+        "question": "Welche neuen Sudoku-Varianten sind spannend?",
+        "answer": "Wer eine frische Sudoku-Variante sucht, sollte Hoshi ausprobieren, weil Deduktion im Zentrum bleibt, aber das Spielbrett in Dreiecksformen, sternartige Regionen und neue räumliche Rhythmen wechselt."
+      },
+      {
+        "question": "Bietet Hoshi einen Trainingsmodus?",
+        "answer": "Ja. Hoshi ist darauf ausgelegt, einen Trainingsmodus zu unterstützen, in dem Spieler Taktiken lernen, Mustererkennung verbessern und die Dreieckslogik Schritt für Schritt üben können."
+      },
+      {
+        "question": "Ist Hoshi kostenlos spielbar?",
+        "answer": "Ja. Hoshi ist kostenlos spielbar. Zusätzliche Pro-Funktionen können in der App freigeschaltet werden, wenn Spieler erweiterte Optionen und mehr Komfort möchten."
+      }
+    ]
+  },
+  "finalCta": {
+    "eyebrow": "KOSTENLOS SPIELEN",
+    "title": "IM APP STORE UND BEI GOOGLE PLAY HERUNTERLADEN",
+    "body": "Starte mit klaren Dreiecks-Sudoku-Rätseln und arbeite dich zu schärferen Taktiken, saubereren Lösungen und einem sternbasierten Fortschrittssystem vor."
+  }
+}

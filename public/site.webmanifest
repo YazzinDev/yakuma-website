@@ -1,0 +1,19 @@
+{
+  "name": "Yakuma",
+  "short_name": "Yakuma",
+  "description": "Yakuma is a modern product studio for software, games, and interactive digital systems.",
+  "id": "/de",
+  "start_url": "/de",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F7F5F0",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

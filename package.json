@@ -1,0 +1,40 @@
+{
+  "name": "yakuma-website",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "generate:legal-dates": "node scripts/generate-legal-document-dates.mjs",
+    "predev": "npm run generate:legal-dates",
+    "dev": "vite",
+    "robots": "node scripts/generate-robots.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "verify:download": "node scripts/verify-download-redirect.mjs",
+    "prebuild": "npm run generate:legal-dates && npm run sitemap && npm run robots",
+    "build": "vite-react-ssg build",
+    "postbuild": "node scripts/generate-static-404.mjs",
+    "verify": "node scripts/verify-build.mjs",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@hcaptcha/react-hcaptcha": "^2.0.2",
+    "gsap": "^3.15.0",
+    "i18next": "^26.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^17.0.2",
+    "react-router-dom": "^6.30.3",
+    "vite-react-ssg": "^0.9.1-beta.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@vitejs/plugin-react": "^5.1.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "vite": "^7.2.7"
+  }
+}

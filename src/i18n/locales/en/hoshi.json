@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "title": "Hoshi: Star Sudoku | Yakuma",
+    "description": "Hoshi: Star Sudoku is a free-to-play triangle Sudoku game with guided tactics, rewarding progression, and handcrafted boards for iOS and Android."
+  },
+  "download": {
+    "meta": {
+      "title": "Download Hoshi: Star Sudoku | Yakuma",
+      "description": "Download Hoshi: Star Sudoku for iOS or Android. Follow the platform link to start solving triangle Sudoku boards with guided tactics and rewarding progression."
+    },
+    "eyebrow": "DOWNLOAD HOSHI NOW",
+    "title": "DOWNLOAD HOSHI NOW",
+    "body": "Choose your platform to start playing Hoshi: Star Sudoku, a fresh triangle Sudoku experience built for focused mobile play.",
+    "fallback": "Store links are being prepared. Explore Hoshi now and return here when the official download links are live.",
+    "redirecting": {
+      "ios": "Opening the App Store…",
+      "android": "Opening Google Play…"
+    },
+    "backToHoshi": "EXPLORE HOSHI",
+    "imageAlt": "Hoshi: Star Sudoku download preview"
+  },
+  "nav": {
+    "about": "ABOUT",
+    "gameplay": "GAMEPLAY",
+    "news": "NEWS",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "eyebrow": "FREE TO PLAY / IOS + ANDROID",
+    "title": "HOSHI: STAR SUDOKU",
+    "subtitle": "A calm, clever Sudoku game built around triangle boards, guided tactics, and long-term progression that keeps every solve feeling meaningful.",
+    "badges": {
+      "appStoreSmall": "Download on the",
+      "appStore": "App Store",
+      "googlePlaySmall": "Get it on",
+      "googlePlay": "Google Play",
+      "pending": "Store link pending"
+    }
+  },
+  "images": {
+    "hero": "Hoshi: Star Sudoku hero visual",
+    "trailer": "Hoshi trailer preview with star motif",
+    "board": "Hoshi triangle Sudoku board preview",
+    "finalDevice": "Hoshi: Star Sudoku download preview"
+  },
+  "twist": {
+    "eyebrow": "A FRESH WAY TO READ SUDOKU",
+    "title": "SUDOKU 2 JUST DROPPED",
+    "description": "Hoshi keeps the satisfying logic of Sudoku and changes the shape of the problem. Triangle regions, star-like paths, and clean mobile interactions make familiar deduction feel fresh without making the game harder to understand."
+  },
+  "trailer": {
+    "label": "Hoshi trailer",
+    "pending": "Trailer pending"
+  },
+  "loop": {
+    "eyebrow": "CORE GAMEPLAY LOOP",
+    "title": "LEARN. ADAPT. MASTER.",
+    "cards": [
+      {
+        "title": "SOLVE BOARDS",
+        "body": "Play boards across Easy, Medium, Hard, and Expert difficulty levels, with each puzzle tuned for clean deduction and a satisfying solve flow.",
+        "imageAlt": "Solving Hoshi boards"
+      },
+      {
+        "title": "LEARN NEW TACTICS",
+        "body": "Improve through guided tutorial training that teaches core Hoshi Sudoku tactics, then apply each strategy immediately on levels built for that lesson.",
+        "imageAlt": "Learning new Hoshi tactics"
+      },
+      {
+        "title": "LEVEL UP",
+        "body": "A quest system and leveling loop create lasting progression, unlocking better rewards, customizations, app themes, and in-game currencies as you collect XP.",
+        "imageAlt": "Leveling up Hoshi progress"
+      }
+    ],
+    "boardLabel": "TACTIC BOARD",
+    "boardHint": "Train pattern recognition, unlock cleaner solves, and turn triangle logic into muscle memory.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Learn different tactics",
+        "body": "Read triangle regions, star paths, and familiar Sudoku constraints in a new shape language."
+      },
+      {
+        "number": "02",
+        "title": "Solve sharper boards",
+        "body": "Move from calm beginner grids into denser puzzles built around spatial deduction."
+      },
+      {
+        "number": "03",
+        "title": "Master your craft",
+        "body": "Refine your flow, collect progress, and return for cleaner solves and better rhythm."
+      }
+    ]
+  },
+  "news": {
+    "eyebrow": "LATEST FROM HOSHI",
+    "title": "NEWS",
+    "description": "Updates, launch notes, feature previews, and behind-the-scenes looks at the triangle Sudoku experience.",
+    "readLabel": "READ",
+    "backLabel": "BACK TO NEWS",
+    "previousLabel": "Previous news",
+    "nextLabel": "Next news",
+    "skeletonLabel": "News pending",
+    "items": [
+      {
+        "date": "COMING 2026",
+        "slug": "the-first-boards",
+        "title": "THE FIRST BOARDS",
+        "body": "Hoshi: Star Sudoku is preparing its first playable board set, giving early players a hands-on look at triangle Sudoku, guided tactics, and the first steps of progression.",
+        "href": "/en/games/hoshi/news/the-first-boards",
+        "metaDescription": "The first Hoshi boards introduce triangle Sudoku, early onboarding, guided tactics, and the first hands-on player experience.",
+        "content": [
+          "Hoshi: Star Sudoku is moving toward its first playable release window. The first board set is designed to let players understand the triangle format quickly, solve with confidence, and feel how the game changes familiar Sudoku logic without losing the clean satisfaction of deduction.",
+          "This first hands-on experience focuses on readable boards, smooth mobile controls, and a clear path from beginner-friendly puzzles into more demanding patterns. Players will be able to try early difficulty tiers, learn the first Hoshi tactics, and see how guided training supports better solves.",
+          "The release date shown here is a placeholder until the final launch timing is confirmed. The goal for this first drop is simple: make the opening minutes feel polished, understandable, and worth returning to."
+        ]
+      }
+    ],
+    "featured": {
+      "date": "2026",
+      "title": "FIRST BOARDS ARE TAKING SHAPE",
+      "body": "The first Hoshi puzzle set focuses on clean triangle regions, readable deduction paths, and a smooth free-to-play onboarding flow."
+    },
+    "side": {
+      "title": "TACTIC NOTES",
+      "body": "New deduction patterns are being tuned for triangle boards."
+    }
+  },
+  "faq": {
+    "eyebrow": "COMMON QUESTIONS",
+    "title": "WHAT MAKES HOSHI DIFFERENT?",
+    "description": "A quick guide to the triangle Sudoku experience, how Yakuma builds it, and what players can expect when they start for free.",
+    "items": [
+      {
+        "question": "What is Hoshi: Star Sudoku?",
+        "answer": "Hoshi is a Sudoku-inspired puzzle game played on a uniquely shaped triangular board. It keeps the logic-first feeling of Sudoku while changing how players scan regions, read patterns, and build solving tactics."
+      },
+      {
+        "question": "Who develops Hoshi?",
+        "answer": "Hoshi is developed by Yakuma, the independent studio behind the game experience, visual direction, and mobile-first puzzle flow."
+      },
+      {
+        "question": "What are cool new Sudoku variations?",
+        "answer": "Players looking for a fresh Sudoku variation should try Hoshi because it keeps deduction at the center but moves the board into triangular shapes, star-like regions, and new spatial rhythms."
+      },
+      {
+        "question": "Does Hoshi offer a training mode?",
+        "answer": "Yes. Hoshi is designed to support a training mode where players can learn tactics, improve pattern recognition, and practice the core triangle-board logic step by step."
+      },
+      {
+        "question": "Is Hoshi free to play?",
+        "answer": "Yes. Hoshi is free to play. Additional Pro features can be unlocked inside the app for players who want more advanced options and expanded convenience."
+      }
+    ]
+  },
+  "finalCta": {
+    "eyebrow": "PLAY FREE",
+    "title": "DOWNLOAD FROM THE APP STORE AND GOOGLE PLAY",
+    "body": "Start with clean triangle Sudoku boards and build your way into sharper tactics, smoother solves, and a star-powered progression loop."
+  }
+}

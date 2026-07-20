@@ -1,0 +1,85 @@
+{
+  "brand": "YAKUMA",
+  "language": {
+    "de": "DE",
+    "en": "EN",
+    "label": "Sprache"
+  },
+  "accessibility": {
+    "skipToContent": "Zum Hauptinhalt springen"
+  },
+  "nav": {
+    "ariaLabel": "Hauptnavigation",
+    "mobileAriaLabel": "Mobile Hauptnavigation",
+    "openMenu": "Navigation öffnen",
+    "closeMenu": "Navigation schließen",
+    "about": "ÜBER UNS",
+    "work": "LEISTUNGEN",
+    "projects": "PROJEKTE",
+    "faq": "FAQ",
+    "gameplay": "GAMEPLAY",
+    "community": "COMMUNITY",
+    "news": "NEWS"
+  },
+  "cta": {
+    "getInTouch": "KONTAKT",
+    "sendInquiry": "ANFRAGE SENDEN",
+    "playFree": "KOSTENLOS SPIELEN",
+    "watchTrailer": "TRAILER ANSEHEN"
+  },
+  "contact": {
+    "kicker": "05 / KONTAKT",
+    "title": "LET'S TALK",
+    "body": "Erzähl Yakuma, was du bauen möchtest. Nutze die Felder für Projektkontext, Zeitrahmen und Kontaktdaten.",
+    "email": "mail@yakuma.de",
+    "subjectPrefix": "Yakuma Anfrage",
+    "statusOpening": "E-Mail-Programm wird geöffnet.",
+    "statusCaptcha": "Bitte bestätige zuerst das Captcha.",
+    "statusSending": "Anfrage wird gesendet.",
+    "statusSendingShort": "WIRD GESENDET",
+    "statusSuccess": "Danke. Deine Anfrage wurde gesendet.",
+    "statusError": "Die Anfrage konnte nicht gesendet werden. Bitte versuche es erneut oder schreibe direkt per E-Mail.",
+    "fallbackPrefix": "Alternativ direkt per E-Mail:",
+    "fields": {
+      "name": { "label": "NAME", "placeholder": "Dein Name" },
+      "email": { "label": "E-MAIL", "placeholder": "mail@example.com" },
+      "project": { "label": "PROJEKT", "placeholder": "Software, Game oder Produktidee" },
+      "message": { "label": "NACHRICHT", "placeholder": "Kurze Projektbeschreibung" }
+    }
+  },
+  "footer": {
+    "studioLine": "Premium-Software, Game Design und digitale Produktentwicklung mit editorialem Anspruch.",
+    "copyright": "COPYRIGHT 2026 YAKUMA / YASSIN KUCZMA",
+    "madeInGermany": "MADE IN GERMANY",
+    "legalLinksAria": "Rechtliche Links",
+    "privacyPolicy": "DATENSCHUTZ",
+    "legalDisclosure": "IMPRESSUM",
+    "termsOfService": "NUTZUNGSBEDINGUNGEN"
+  },
+  "legal": {
+    "updated": "STAND / {{date}}",
+    "metaDescriptionHoshi": "{{title}} für Hoshi: Star Sudoku.",
+    "metaDescriptionYakuma": "{{title}} für Yakuma.",
+    "linkGroupEyebrow": "RECHTLICHES",
+    "linkGroupTitle": "Weitere Dokumente",
+    "linkGroupAriaLabel": "Weitere rechtliche Dokumente",
+    "heroDescription": {
+      "hoshi": {
+        "legal-disclosure": "Anbieterkennzeichnung, verantwortliche Kontaktdaten, Hoshi-App-Bezüge und Verbraucherstreitinformationen für Yakuma.",
+        "privacy-policy": "Wie Hoshi lokale App-Daten, Einwilligungen, Analysen, Werbung, Käufe, Support, externe Dienste, Speicherfristen und Nutzerrechte behandelt.",
+        "terms-of-service": "Regeln zur Nutzung von Hoshi: Star Sudoku, inklusive Abos, Käufen, lokalem Spielfortschritt, virtuellen Inhalten, Support und App-Store-Bedingungen."
+      },
+      "yakuma": {
+        "legal-disclosure": "Anbieterkennzeichnung und verantwortliche Kontaktdaten für die Yakuma-Webseite und das Studio.",
+        "privacy-policy": "Informationen zur Verarbeitung personenbezogener Daten auf der Yakuma-Webseite und bei Kontaktanfragen."
+      }
+    },
+    "pendingTitle": "Rechtliches Dokument ausstehend",
+    "pendingBody": "Dieses rechtliche Dokument wurde noch nicht bereitgestellt. Es wird absichtlich nicht automatisch erzeugt."
+  },
+  "notFound": {
+    "title": "SEITE NICHT GEFUNDEN",
+    "body": "Die angeforderte Seite existiert nicht.",
+    "home": "Zurück zu Yakuma"
+  }
+}

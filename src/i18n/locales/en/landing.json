@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "title": "Yakuma | Software, Games, Digital Systems",
+    "description": "Yakuma is a modern product studio building premium software, games, and interactive digital systems."
+  },
+  "hero": {
+    "title": "YAKUMA",
+    "subtitle": "DELIVERING EXCELLENCE",
+    "copyright": "COPYRIGHT 2026 YAKUMA",
+    "social": "LINKEDIN",
+    "socialPending": "Profile link pending"
+  },
+  "about": {
+    "kicker": "01 / WHO IS YAKUMA",
+    "title": "WHO IS YAKUMA?",
+    "body": "Yakuma is a modern product studio building precise digital experiences for software, games, and interactive brands. We combine engineering discipline with visual direction, turning ideas into polished products that feel premium from the first interaction.",
+    "mark": "YAKUMA"
+  },
+  "images": {
+    "about": "Editorial Yakuma visual for studio work",
+    "services": "Editorial Yakuma visual for software, games, and digital systems",
+    "hoshiProject": "Hoshi: Star Sudoku project preview"
+  },
+  "services": {
+    "kicker": "02 / OUR SERVICES",
+    "title": "SOFTWARE, GAMES, DIGITAL SYSTEMS",
+    "body": "Yakuma designs and develops modern applications, playful digital products, and interactive systems. Our work spans Flutter apps, backend platforms, game concepts, brand experiences, and production-ready product interfaces.",
+    "items": [
+      { "label": "SOFTWARE ENGINEERING", "href": "/services/software-engineering" },
+      { "label": "GAME DESIGN", "href": "/services/game-design" },
+      { "label": "INTERACTIVE PRODUCT DESIGN", "href": "/services/interactive-product-design" }
+    ]
+  },
+  "projects": {
+    "kicker": "03 / OUR PROJECTS",
+    "title": "PROJECTS",
+    "featured": {
+      "title": "Hoshi: Star Sudoku",
+      "description": "A calm Sudoku app built for daily focus, clear puzzles, and a polished mobile experience with Guided Hints, Training Mode, Stats, and Custom Themes customization for personal play.",
+      "link": "VISIT HOSHI"
+    },
+    "comingSoon": "COMING SOON",
+    "previous": "Previous project",
+    "next": "Next project"
+  },
+  "faq": {
+    "kicker": "04 / FAQ",
+    "title": "COMMON QUESTIONS",
+    "intro": "Many visitors come to Yakuma with product ideas that feel promising but unclear: app scope, design direction, technical structure, or launch priorities. Yakuma helps turn that uncertainty into a clear digital product path, from first concept to implementation.",
+    "items": [
+      {
+        "question": "Who is Yakuma?",
+        "answer": "Yakuma is a digital product studio founded by Yassin Kuczma. It builds polished software, mobile apps, games, and interactive experiences with a premium visual standard and practical engineering foundation."
+      },
+      {
+        "question": "What is Yakuma developing?",
+        "answer": "Yakuma is developing Hoshi Star Sudoku, a calm Sudoku app for focused daily play. The studio also explores application concepts, backend systems, game ideas, and product interfaces."
+      },
+      {
+        "question": "Who founded Yakuma?",
+        "answer": "Yakuma was founded by Yassin Kuczma. The studio combines software engineering, product thinking, visual design, and interactive work in one focused product practice."
+      },
+      {
+        "question": "What services does Yakuma offer?",
+        "answer": "Yakuma offers software engineering, Flutter app development, backend development, game design, product design, and interface design. Work can cover concepts, architecture, prototypes, implementation, and iteration."
+      },
+      {
+        "question": "How can I contact Yakuma?",
+        "answer": "You can contact Yakuma through the form on this page or by email at mail@yakuma.de. A helpful message describes the product, current stage, target platform, and whether the work is about software, a game, or a digital experience."
+      }
+    ]
+  }
+}

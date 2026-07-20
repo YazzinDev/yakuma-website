@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "titleSuffix": "Yakuma Services",
+    "description": "Yakuma service page for software, games, and interactive digital products.",
+    "heroImageAlt": "Editorial Yakuma visual for {{title}}",
+    "detailKicker": "WHAT THIS COVERS",
+    "faqKicker": "FAQ",
+    "faqTitle": "COMMON QUESTIONS"
+  },
+  "software-engineering": {
+    "route": "YAKUMA.DE/SERVICES/SOFTWARE-ENGINEERING",
+    "heroKicker": "DEVELOPMENT",
+    "title": "SOFTWARE ENGINEERING",
+    "intro": "Yakuma builds reliable digital products from first architecture decisions to polished implementation. The work focuses on maintainable systems, clear user flows, and production-ready software foundations.",
+    "backgroundWord": "SOFTWARE",
+    "detailHeading": "FROM IDEA TO WORKING SYSTEM",
+    "faqIntro": "Software projects often get stuck when architecture, interfaces, and product goals drift apart. Yakuma helps by clarifying the system, reducing technical ambiguity, and turning rough requirements into maintainable software that can actually ship.",
+    "capabilities": [
+      {
+        "title": "Architecture",
+        "text": "Clean technical foundations for apps, backends, integrations, and product platforms."
+      },
+      {
+        "title": "Implementation",
+        "text": "Practical development with attention to usability, performance, testing, and maintainability."
+      },
+      {
+        "title": "Iteration",
+        "text": "Structured improvement cycles that turn prototypes into stable product experiences."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What does software engineering include?",
+        "answer": "It can include application development, backend systems, technical architecture, integrations, testing, and implementation of product interfaces."
+      },
+      {
+        "question": "Which technologies can be part of the work?",
+        "answer": "The exact stack depends on the product, but Yakuma can work across modern app, backend, and interface layers with a focus on maintainable implementation."
+      },
+      {
+        "question": "Can Yakuma help with early product ideas?",
+        "answer": "Yes. A project can start with rough requirements, a prototype, or an existing codebase that needs clearer structure and direction."
+      },
+      {
+        "question": "How should a software project start?",
+        "answer": "A useful first step is describing the target users, core features, current constraints, desired platform, and what already exists."
+      },
+      {
+        "question": "Can Yakuma improve existing software?",
+        "answer": "Yes. Yakuma can review an existing product, identify weak points in structure or user experience, and help improve the codebase, interface, or product flow without starting from scratch."
+      }
+    ]
+  },
+  "game-design": {
+    "route": "YAKUMA.DE/SERVICES/GAME-DESIGN",
+    "heroKicker": "PLAY SYSTEMS",
+    "title": "GAME\nDESIGN",
+    "intro": "Yakuma designs playful digital experiences with clear rules, strong interaction loops, and a polished visual direction. The focus is on games that feel understandable, memorable, and worth returning to.",
+    "backgroundWord": "GAMES",
+    "detailHeading": "PLAYABLE IDEAS WITH STRUCTURE",
+    "faqIntro": "Game ideas can feel exciting but hard to structure: rules, menus, progression, feedback, and first playable loops need to work together. Yakuma helps turn loose concepts into testable game experiences with clearer design decisions.",
+    "capabilities": [
+      {
+        "title": "Concept",
+        "text": "Game ideas, mechanics, progression, and moment-to-moment player experience."
+      },
+      {
+        "title": "Prototype",
+        "text": "Playable loops that test whether the core idea feels clear, satisfying, and repeatable."
+      },
+      {
+        "title": "Polish",
+        "text": "Visual direction, interaction feedback, interface decisions, and iteration on feel."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What does game design cover?",
+        "answer": "Game design can include mechanics, rules, progression, player goals, feedback loops, interface concepts, and the overall feel of play."
+      },
+      {
+        "question": "Can Yakuma build game prototypes?",
+        "answer": "Yes. A prototype can be used to test the core loop, validate controls, and understand whether the idea is strong enough to continue."
+      },
+      {
+        "question": "What types of games fit Yakuma?",
+        "answer": "Yakuma is suited for focused digital games, puzzle experiences, mobile-first concepts, and interactive products with a strong gameplay layer."
+      },
+      {
+        "question": "What is needed to start a game project?",
+        "answer": "A useful starting point is the game idea, target platform, player audience, core mechanic, visual references, and desired level of production."
+      },
+      {
+        "question": "Can Yakuma support game UI and menus?",
+        "answer": "Yes. Game design can include menus, HUD elements, onboarding screens, feedback states, and interface systems that make the game easier to understand and more satisfying to play."
+      }
+    ]
+  },
+  "interactive-product-design": {
+    "route": "YAKUMA.DE/SERVICES/INTERACTIVE-PRODUCT-DESIGN",
+    "heroKicker": "PRODUCT FLOWS",
+    "title": "INTERACTIVE PRODUCT DESIGN",
+    "intro": "Yakuma designs interfaces and digital product experiences that connect visual direction with real interaction. The result is a product system that feels premium, understandable, and ready to be built.",
+    "backgroundWord": "INTERACTIVE",
+    "detailHeading": "DESIGN THAT CAN BECOME PRODUCT",
+    "faqIntro": "Interactive products can fail when screens, states, and user flows are designed separately. Yakuma helps connect product strategy, interface design, and implementation logic into a system users can understand and teams can build.",
+    "capabilities": [
+      {
+        "title": "Flows",
+        "text": "User journeys, information structure, and interaction paths for product experiences."
+      },
+      {
+        "title": "Interfaces",
+        "text": "High-quality screens, components, states, and visual systems for real product usage."
+      },
+      {
+        "title": "Handoff",
+        "text": "Design decisions shaped so engineering can implement them without losing intent."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is interactive product design?",
+        "answer": "It is the design of digital products where layout, visual style, states, and user interaction work together as one experience."
+      },
+      {
+        "question": "How is it different from static design?",
+        "answer": "Interactive product design considers what users click, enter, change, open, close, compare, and repeat during real usage."
+      },
+      {
+        "question": "Can Yakuma design before development starts?",
+        "answer": "Yes. Yakuma can shape product structure, key screens, components, and interaction logic before implementation begins."
+      },
+      {
+        "question": "What helps start a design project?",
+        "answer": "Helpful inputs include product goals, target users, required screens, brand direction, technical constraints, and examples of desired quality."
+      },
+      {
+        "question": "Can Yakuma design systems for multiple screens?",
+        "answer": "Yes. Interactive product design can include reusable components, screen states, layout rules, and interaction patterns that keep a product consistent across different views and workflows."
+      }
+    ]
+  }
+}
