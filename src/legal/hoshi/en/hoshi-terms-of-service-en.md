@@ -37,6 +37,6 @@ We are liable without limitation for intent, gross negligence, and damage arisin
 
 ## 7. Termination and final provisions
 
-You may stop using the app at any time by uninstalling it. You may delete your account in accordance with our [account-deletion instructions](https://yakuma.de/en/games/hoshi/delete-account). German law applies. Mandatory consumer-protection provisions of the country in which you have your habitual residence remain unaffected.
+You may stop using the app at any time by uninstalling it. You may delete your account in the app through “Settings” → “Account” → “Delete account” or in accordance with our [account-deletion instructions](/en/games/hoshi/delete-account). German law applies. Mandatory consumer-protection provisions of the country in which you have your habitual residence remain unaffected.
 
 We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board. The current version is available at https://yakuma.de/en/games/hoshi/legal/terms-of-service.

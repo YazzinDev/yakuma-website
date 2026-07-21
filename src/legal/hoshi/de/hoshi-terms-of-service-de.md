@@ -37,6 +37,6 @@ Wir haften uneingeschränkt bei Vorsatz, grober Fahrlässigkeit sowie bei Schäd
 
 ## 7. Beendigung und Schlussbestimmungen
 
-Du kannst die Nutzung jederzeit beenden, indem du die App deinstallierst. Dein Konto kannst du gemäß unserer [Anleitung zur Kontolöschung](https://yakuma.de/de/games/hoshi/delete-account) löschen. Es gilt deutsches Recht. Zwingende Verbraucherschutzvorschriften des Staates, in dem du deinen gewöhnlichen Aufenthalt hast, bleiben unberührt.
+Du kannst die Nutzung jederzeit beenden, indem du die App deinstallierst. Dein Konto kannst du in der App über „Einstellungen“ → „Konto“ → „Konto löschen“ oder gemäß unserer [Anleitung zur Kontolöschung](/de/games/hoshi/delete-account) löschen. Es gilt deutsches Recht. Zwingende Verbraucherschutzvorschriften des Staates, in dem du deinen gewöhnlichen Aufenthalt hast, bleiben unberührt.
 
 Wir sind weder bereit noch verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. Die aktuelle Fassung findest du unter https://yakuma.de/de/games/hoshi/legal/terms-of-service.

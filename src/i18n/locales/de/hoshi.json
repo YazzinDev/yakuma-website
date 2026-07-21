@@ -19,6 +19,38 @@
     "backToHoshi": "HOSHI ENTDECKEN",
     "imageAlt": "Hoshi: Star Sudoku Download-Vorschau"
   },
+  "deleteAccount": {
+    "meta": {
+      "title": "Hoshi-Konto löschen | Yakuma",
+      "description": "Erfahre, wie du dein Hoshi-Konto in der App oder per E-Mail an den Support löschen kannst."
+    },
+    "eyebrow": "HOSHI-KONTO",
+    "title": "KONTO LÖSCHEN",
+    "introduction": "Du kannst dein Hoshi-Konto jederzeit direkt in der App löschen. Wenn du keinen Zugriff auf die App hast, hilft dir unser Support weiter.",
+    "steps": {
+      "eyebrow": "IN DER APP",
+      "title": "SO LÖSCHST DU DEIN KONTO",
+      "introduction": "Folge diesen Schritten in Hoshi:",
+      "items": [
+        "Öffne in Hoshi „Einstellungen“.",
+        "Wähle „Konto“.",
+        "Wähle „Konto löschen“.",
+        "Bestätige erneut mit „Konto löschen“."
+      ]
+    },
+    "support": {
+      "eyebrow": "ALTERNATIVE",
+      "title": "ÜBER DEN SUPPORT LÖSCHEN",
+      "introduction": "Wenn du die App nicht verwenden kannst, sende uns eine E-Mail mit dem folgenden Betreff:",
+      "email": "support@yakuma.de",
+      "subject": "Hoshi Account Deletion",
+      "subjectLabel": "Betreff: Hoshi Account Deletion"
+    },
+    "notice": {
+      "title": "WAS DIE LÖSCHUNG BEDEUTET",
+      "body": "Die Löschung entfernt dein Hoshi-Cloudkonto dauerhaft. Lokale Spielstände auf deinem Gerät werden nicht gelöscht und ein Abonnement im Apple App Store oder bei Google Play wird dadurch nicht gekündigt."
+    }
+  },
   "nav": {
     "about": "ÜBER DAS SPIEL",
     "gameplay": "SPIELABLAUF",

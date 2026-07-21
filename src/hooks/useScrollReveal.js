@@ -12,7 +12,7 @@ const targetSelector = [
   'h1',
   'h2',
   'h3',
-  'p:not(.section-kicker)',
+  'p:not(.section-kicker):not(.account-deletion-steps__text)',
   '.placeholder-image',
   '.project-card',
   '.service-capability',

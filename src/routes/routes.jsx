@@ -1,6 +1,7 @@
 import App from '../App';
 import HoshiPage from '../pages/HoshiPage';
 import HoshiDownloadPage from '../pages/HoshiDownloadPage';
+import HoshiDeleteAccountPage from '../pages/HoshiDeleteAccountPage';
 import HoshiNewsPage from '../pages/HoshiNewsPage';
 import LandingPage from '../pages/LandingPage';
 import LegalPage from '../pages/LegalPage';
@@ -27,6 +28,10 @@ const localizedRoutes = supportedLanguages.flatMap((language) => [
   {
     path: `${language}/games/hoshi/download`,
     element: <HoshiDownloadPage language={language} />,
+  },
+  {
+    path: `${language}/games/hoshi/delete-account`,
+    element: <HoshiDeleteAccountPage language={language} />,
   },
   {
     path: `${language}/games/hoshi/news/the-first-boards`,
