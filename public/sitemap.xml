@@ -37,6 +37,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.yakuma.de/en/games/hoshi/download" />
   </url>
   <url>
+    <loc>https://www.yakuma.de/de/games/hoshi/delete-account</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.yakuma.de/de/games/hoshi/delete-account" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.yakuma.de/en/games/hoshi/delete-account" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.yakuma.de/en/games/hoshi/delete-account" />
+  </url>
+  <url>
     <loc>https://www.yakuma.de/de/games/hoshi/news/the-first-boards</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.yakuma.de/de/games/hoshi/news/the-first-boards" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.yakuma.de/en/games/hoshi/news/the-first-boards" />
@@ -101,6 +107,12 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.yakuma.de/de/games/hoshi/download" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.yakuma.de/en/games/hoshi/download" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.yakuma.de/en/games/hoshi/download" />
+  </url>
+  <url>
+    <loc>https://www.yakuma.de/en/games/hoshi/delete-account</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.yakuma.de/de/games/hoshi/delete-account" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.yakuma.de/en/games/hoshi/delete-account" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.yakuma.de/en/games/hoshi/delete-account" />
   </url>
   <url>
     <loc>https://www.yakuma.de/en/games/hoshi/news/the-first-boards</loc>
