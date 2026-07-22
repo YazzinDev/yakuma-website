@@ -16,7 +16,7 @@ Support: support@yakuma.de
 
 ## 2. Playing and age category
 
-Game saves, progress, settings, privacy settings, and your age settings are stored locally on your device so that the app can function and we can apply age and consent rules. Until you make a selection, personalised advertising and Firebase Analytics are unavailable. This data remains there until you delete or reset the app or its data.
+Game saves, progress, settings, privacy settings, and your age settings are stored locally on your device so that the app can function and we can apply age and consent rules. Until you make a selection, personalised advertising and Firebase Analytics are unavailable. Optional crash reports via Sentry are sent only if you separately give voluntary consent. This data remains there until you delete or reset the app or its data.
 
 ## 3. Optional Hoshi Account
 
@@ -30,7 +30,7 @@ We need this data to provide and protect your account and profile and to associa
 
 **Advertising and analytics.** We may display non-personalised advertising. We use personalised advertising and Firebase Analytics only with your consent and where age and platform requirements are met. For this purpose, Google AdMob, Google User Messaging Platform, and Firebase Analytics may process device, app, usage, and advertising information. You can change or withdraw your consent for the future at any time under “Age & Privacy”.
 
-**Security and stability.** To diagnose errors, we process technical data such as app version, operating system, device type, and error reports. For this purpose, we use Sentry with data storage in the European Union. Hoshi does not transmit an account identifier or additional profile data to Sentry.
+**Security and stability.** If you separately give voluntary consent to optional crash reports, we process technical data such as app version, operating system, device type, and error reports to diagnose errors. For this purpose, we use Sentry with data storage in the European Union. Hoshi does not transmit an account identifier or additional profile data to Sentry.
 
 **Support.** When you contact us, we process your email address, message, and information you provide in order to respond to your request.
 

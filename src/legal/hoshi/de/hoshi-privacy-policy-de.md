@@ -16,7 +16,7 @@ Support: support@yakuma.de
 
 ## 2. Spielen und Alterskategorie
 
-Spielstände, Fortschritt, Einstellungen, Datenschutzeinstellungen und deine Alterseinstellungen speichern wir lokal auf deinem Gerät, damit die App funktioniert und wir Alters- und Einwilligungsregeln anwenden können. Ohne Auswahl stehen dir personalisierte Werbung und Firebase Analytics nicht zur Verfügung. Diese Daten bleiben dort, bis du die App oder ihre Daten löschst oder zurücksetzt.
+Spielstände, Fortschritt, Einstellungen, Datenschutzeinstellungen und deine Alterseinstellungen speichern wir lokal auf deinem Gerät, damit die App funktioniert und wir Alters- und Einwilligungsregeln anwenden können. Ohne Auswahl stehen dir personalisierte Werbung und Firebase Analytics nicht zur Verfügung. Optionale Fehlerberichte über Sentry senden wir nur, wenn du separat freiwillig eingewilligt hast. Diese Daten bleiben dort, bis du die App oder ihre Daten löschst oder zurücksetzt.
 
 ## 3. Freiwilliges Hoshi-Konto
 
@@ -30,7 +30,7 @@ Diese Daten benötigen wir, um dein Konto und Profil bereitzustellen, das Konto 
 
 **Werbung und Analyse.** Wir können nicht personalisierte Werbung anzeigen. Personalisierte Werbung und Firebase Analytics verwenden wir nur nach deiner Einwilligung und wenn die Alters- und Plattformvorgaben erfüllt sind. Dafür können Google AdMob, Google User Messaging Platform und Firebase Analytics Geräte-, App-, Nutzungs- und Werbeinformationen verarbeiten. Du kannst deine Einwilligung unter „Age & Privacy“ jederzeit für die Zukunft ändern oder widerrufen.
 
-**Sicherheit und Stabilität.** Zur Fehlerbehebung verarbeiten wir technische Daten wie App-Version, Betriebssystem, Gerätetyp und Fehlerberichte. Dafür nutzen wir Sentry mit Datenspeicherung in der Europäischen Union. Hoshi übermittelt dabei keine Kontokennung und keine zusätzlich gesetzten Profildaten.
+**Sicherheit und Stabilität.** Wenn du separat freiwillig in optionale Fehlerberichte einwilligst, verarbeiten wir zur Fehlerbehebung technische Daten wie App-Version, Betriebssystem, Gerätetyp und Fehlerberichte. Dafür nutzen wir Sentry mit Datenspeicherung in der Europäischen Union. Hoshi übermittelt dabei keine Kontokennung und keine zusätzlich gesetzten Profildaten an Sentry.
 
 **Support.** Wenn du uns kontaktierst, verarbeiten wir deine E-Mail-Adresse, Nachricht und die von dir übermittelten Angaben, um deine Anfrage zu beantworten.
 
