@@ -19,17 +19,21 @@ function getDocumentDate(filePath) {
   const fileRelativePath = relative(projectRoot, filePath);
 
   try {
-    const lastCommitDate = execFileSync('git', ['log', '-1', '--format=%aI', '--', fileRelativePath], {
-      cwd: projectRoot,
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
-    }).trim();
+    const lastCommitDate = execFileSync(
+      'git',
+      ['log', '-1', '--format=%cI', '--', fileRelativePath],
+      {
+        cwd: projectRoot,
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'ignore'],
+      },
+    ).trim();
 
     if (/^\d{4}-\d{2}-\d{2}T/.test(lastCommitDate)) {
       return lastCommitDate.slice(0, 10);
     }
   } catch {
-    // Uncommitted documents use their own modification time until they are committed.
+    // New, uncommitted documents use their modification time until their first commit.
   }
 
   return statSync(filePath).mtime.toISOString().slice(0, 10);

@@ -57,7 +57,7 @@
     "termsOfService": "TERMS OF SERVICE"
   },
   "legal": {
-    "updated": "UPDATED / {{date}}",
+    "updated": "Last change to this file: {{date}}",
     "metaDescriptionHoshi": "{{title}} for Hoshi: Star Sudoku.",
     "metaDescriptionYakuma": "{{title}} for Yakuma.",
     "linkGroupEyebrow": "LEGAL",

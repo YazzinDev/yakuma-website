@@ -21,10 +21,8 @@ export default function LegalPage({ docType, language, scope }) {
   const { t } = useTranslation('common');
   const markdown = getLegalDocument(scope, normalizedLanguage, docType);
   const title = legalTitles[docType]?.[normalizedLanguage] ?? docType;
-  const updatedDate = formatLegalDocumentDate(
-    getLegalDocumentDate(scope, normalizedLanguage, docType),
-    normalizedLanguage,
-  );
+  const updatedAt = getLegalDocumentDate(scope, normalizedLanguage, docType);
+  const updatedDate = formatLegalDocumentDate(updatedAt, normalizedLanguage);
   const pathPrefix = scope === 'hoshi' ? 'games/hoshi/legal' : 'legal';
   const isPendingDocument = isPendingLegalDocument(markdown);
   const description = t(
@@ -54,7 +52,11 @@ export default function LegalPage({ docType, language, scope }) {
       >
         <section className="legal-hero">
           <h1>{title}</h1>
-          {updatedDate ? <p className="legal-hero__updated">{t('legal.updated', { date: updatedDate })}</p> : null}
+          {updatedDate ? (
+            <p className="legal-hero__updated">
+              <time dateTime={updatedAt}>{t('legal.updated', { date: updatedDate })}</time>
+            </p>
+          ) : null}
           <p className="legal-hero__description">{heroDescription}</p>
         </section>
         <LegalDocument language={normalizedLanguage} markdown={markdown} />

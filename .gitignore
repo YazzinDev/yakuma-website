@@ -29,3 +29,6 @@ src/legal/documentDates.generated.js
 
 # Local reference project, not part of the final website
 PortfolioWebsite/
+
+# Local Superpowers planning artifacts
+/docs/superpowers/
