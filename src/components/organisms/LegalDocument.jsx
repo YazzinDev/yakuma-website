@@ -3,7 +3,7 @@ import { supportedLanguages } from '../../i18n/languages.js';
 import { parseLegalMarkdown } from '../../legal/markdown.js';
 
 const inlinePattern =
-  /(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\((?:https?:\/\/|mailto:|\/)[^)]+\)|https?:\/\/[^\s]+|[\w.+-]+@[\w.-]+\.[a-z]{2,})/gi;
+  /(`[^`]+`|\*\*\*[^*]+\*\*\*|\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\((?:https?:\/\/|mailto:|\/)[^)]+\)|https?:\/\/[^\s]+|[\w.+-]+@[\w.-]+\.[a-z]{2,})/gi;
 const siteOrigin = new URL(siteUrl).origin;
 
 function normalizeInternalPath(pathname, language) {
@@ -59,6 +59,7 @@ function renderLink(href, children, key, language) {
 function renderInlineToken(token, key, language) {
   const markdownLink = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(token);
   const inlineCode = /^`(.+)`$/.exec(token);
+  const boldEmphasis = /^\*\*\*(.+)\*\*\*$/.exec(token);
   const bold = /^\*\*(.+)\*\*$/.exec(token);
   const emphasis = /^\*(.+)\*$/.exec(token);
 
@@ -68,6 +69,14 @@ function renderInlineToken(token, key, language) {
 
   if (inlineCode) {
     return <code key={key}>{inlineCode[1]}</code>;
+  }
+
+  if (boldEmphasis) {
+    return (
+      <strong key={key}>
+        <em>{renderInline(boldEmphasis[1], language)}</em>
+      </strong>
+    );
   }
 
   if (bold) {
