@@ -5,11 +5,10 @@ This policy describes how personal data is processed in Hoshi: Star Sudoku.
 ## 1. Controller and contact
 
 The controller is:  
-Yassin Kuczma  
-Sole proprietorship “Yakuma”  
-[Street and house number]  
-[Postal code and city]  
-Germany
+Yakuma — Yassin Kuczma  
+c/o Online-Impressum 10897  
+Europaring 90  
+53757 Sankt Augustin
 
 Email: mail@yakuma.de  
 Support: support@yakuma.de

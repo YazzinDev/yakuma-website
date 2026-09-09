@@ -5,11 +5,10 @@ Diese Erklärung beschreibt die Verarbeitung personenbezogener Daten in Hoshi: S
 ## 1. Verantwortlicher und Kontakt
 
 Verantwortlich ist:  
-Yassin Kuczma  
-Einzelunternehmen „Yakuma“  
-[Straße und Hausnummer]  
-[Postleitzahl und Ort]  
-Deutschland
+Yakuma — Yassin Kuczma  
+c/o Online-Impressum 10897  
+Europaring 90  
+53757 Sankt Augustin
 
 E-Mail: mail@yakuma.de  
 Hilfe: support@yakuma.de

@@ -5,13 +5,13 @@
 Diese Bedingungen gelten für die mobile App Hoshi: Star Sudoku.
 
 Anbieter der App:  
-Yassin Kuczma  
-Einzelunternehmen „Yakuma“  
-[Straße und Hausnummer]  
-[Postleitzahl und Ort]  
-Deutschland
+Yakuma — Yassin Kuczma  
+c/o Online-Impressum 10897  
+Europaring 90  
+53757 Sankt Augustin
 
-Kontakt: support@yakuma.de
+Allgemeiner Kontakt: mail@yakuma.de  
+Support: support@yakuma.de
 
 ## 2. Nutzung und Hoshi-Konto
 
