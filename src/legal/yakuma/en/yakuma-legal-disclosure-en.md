@@ -4,14 +4,14 @@ c/o Online-Impressum 10897
 Europaring 90  
 53757 Sankt Augustin
 
-E-Mail: mail@yakuma.de
+Email: mail@yakuma.de
 
-Telefon: +49 2162 8184860
+Telephone: +49 2162 8184860
 
-[Zweiter Kontaktweg](https://mein.online-impressum.de/yakuma/#zweiterkontaktweg)
+[Second contact option](https://mein.online-impressum.de/yakuma/#zweiterkontaktweg)
 
-USt-IdNr.: DE463447227
+VAT ID No.: DE463447227
 
-Zuständige Aufsichtsbehörde: Landesanstalt für Medien Nordrhein-Westfalen | Sitz: Deutschland
+Competent supervisory authority: Media Authority of North Rhine-Westphalia | Registered office: Germany
 
-***Kein Umsatzsteuerausweis aufgrund Anwendung der Kleinunternehmerregelung gemäß § 19 UStG.***
+***No VAT is shown due to the application of the small-business regulation pursuant to Section 19 of the German VAT Act.***
