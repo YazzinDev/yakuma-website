@@ -10,10 +10,11 @@
     "robots": "node scripts/generate-robots.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "verify:download": "node scripts/verify-download-redirect.mjs",
+    "verify:contact": "node scripts/verify-contact-form.mjs",
     "prebuild": "npm run generate:legal-dates && npm run sitemap && npm run robots",
     "build": "vite-react-ssg build",
     "postbuild": "node scripts/generate-static-404.mjs",
-    "verify": "node scripts/verify-build.mjs",
+    "verify": "node scripts/verify-current-build.mjs && node scripts/verify-contact-form.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -25,16 +26,19 @@
     "react-dom": "^18.3.1",
     "react-i18next": "^17.0.2",
     "react-router-dom": "^6.30.3",
+    "three": "^0.180.0",
     "vite-react-ssg": "^0.9.1-beta.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
     "@vitejs/plugin-react": "^5.1.0",
+    "esbuild": "0.28.1",
     "eslint": "^9.39.4",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
+    "jsdom": "24.1.3",
     "vite": "^7.2.7"
   }
 }

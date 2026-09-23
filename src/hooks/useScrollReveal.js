@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 
 const revealSelector = [
-  'section:not(.landing-hero):not(.hoshi-hero)',
-  '.legal-hero',
-  '.legal-document',
-  '.legal-link-group',
+  '.yakuma-about',
+  '.yakuma-projects',
+  '.yakuma-faq',
+  '.yakuma-contact',
+  '.hoshi-about',
+  '.hoshi-how-to',
+  '.faq-section--hoshi',
 ].join(',');
 
 const targetSelector = [
@@ -15,20 +18,32 @@ const targetSelector = [
   'p:not(.section-kicker):not(.account-deletion-steps__text)',
   '.placeholder-image',
   '.project-card',
-  '.service-capability',
   '.faq-item',
   '.text-field',
   '.contact-form .button',
   '.news-card',
   '.store-badge',
+  '.capability-window',
+  '.garment-label',
+  '.featured-project-window',
+  '.project-annotation',
+  '.hoshi-about__banner',
+  '.hoshi-about__triangle',
 ].join(',');
 
 function getDirectRevealTargets(section) {
   const candidates = Array.from(section.querySelectorAll(targetSelector));
+  const candidateSet = new Set(candidates);
 
   return candidates.filter((candidate) => {
     const nestedSection = candidate.parentElement?.closest(revealSelector);
-    return nestedSection === section;
+    if (nestedSection !== section) return false;
+    let ancestor = candidate.parentElement;
+    while (ancestor && ancestor !== section) {
+      if (candidateSet.has(ancestor)) return false;
+      ancestor = ancestor.parentElement;
+    }
+    return true;
   });
 }
 
@@ -40,12 +55,12 @@ function getRevealOpacity(target) {
 export default function useScrollReveal(rootRef) {
   useEffect(() => {
     const root = rootRef.current;
-    if (!root) {
+    const reducedPreview = import.meta.env.DEV && new URLSearchParams(window.location.search).has('previewReducedMotion');
+    if (!root || reducedPreview) {
       return undefined;
     }
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let context;
+    let media;
     let isMounted = true;
 
     async function setupRevealAnimations() {
@@ -60,7 +75,11 @@ export default function useScrollReveal(rootRef) {
 
       gsap.registerPlugin(ScrollTrigger);
 
-      context = gsap.context(() => {
+      // matchMedia reverts the animations when the preference changes at runtime.
+      // Reduced motion retains the visible server-rendered end state.
+      media = gsap.matchMedia();
+      const motionPreview = import.meta.env.DEV && new URLSearchParams(window.location.search).has('previewMotion');
+      media.add(motionPreview ? 'all' : '(prefers-reduced-motion: no-preference)', () => {
         const sections = Array.from(root.querySelectorAll(revealSelector));
 
         sections.forEach((section) => {
@@ -69,7 +88,7 @@ export default function useScrollReveal(rootRef) {
             return;
           }
 
-          const yOffset = prefersReducedMotion ? 28 : 52;
+          const yOffset = root.className.includes('hoshi') ? 20 : 40;
           const revealOpacities = targets.map(getRevealOpacity);
 
           gsap.set(targets, {
@@ -79,7 +98,7 @@ export default function useScrollReveal(rootRef) {
 
           gsap.to(targets, {
             clearProps: 'opacity,transform',
-            duration: prefersReducedMotion ? 0.55 : 0.9,
+            duration: 0.75,
             ease: 'power3.out',
             opacity: (index) => revealOpacities[index],
             scrollTrigger: {
@@ -88,12 +107,26 @@ export default function useScrollReveal(rootRef) {
               toggleActions: 'play none none none',
               trigger: section,
             },
-            stagger: prefersReducedMotion ? 0.05 : 0.1,
+            stagger: 0.08,
             y: 0,
           });
         });
 
-        ScrollTrigger.refresh();
+        let refreshFrame = 0;
+        const scheduleRefresh = () => {
+          cancelAnimationFrame(refreshFrame);
+          refreshFrame = requestAnimationFrame(() => ScrollTrigger.refresh());
+        };
+        const resize = new ResizeObserver(scheduleRefresh);
+        resize.observe(root);
+        root.addEventListener('load', scheduleRefresh, true);
+        document.fonts.ready.then(() => { if (isMounted) scheduleRefresh(); });
+        scheduleRefresh();
+        return () => {
+          cancelAnimationFrame(refreshFrame);
+          resize.disconnect();
+          root.removeEventListener('load', scheduleRefresh, true);
+        };
       }, root);
     }
 
@@ -101,7 +134,7 @@ export default function useScrollReveal(rootRef) {
 
     return () => {
       isMounted = false;
-      context?.revert();
+      media?.revert();
     };
   }, [rootRef]);
 }

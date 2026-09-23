@@ -1,0 +1,154 @@
+/* Pencil KOY9L: role definitions, shared across all Hoshi screens.
+   1920px desktop and 1080px mobile artboards have separate coordinate scales.
+   At ordinary phone widths reading text has a 16px accessibility floor. */
+:root {
+  --pencil-unit: min(1px, 100vw / 1920);
+  --yk-bg: #0b0b10;
+  --yk-surface: #121219;
+  --yk-ink: #f3effa;
+  --yk-muted: #aaa3bc;
+  --yk-accent: #c9b8ef;
+  --yk-line: #51495f;
+  --hs-ink: #1f1a17;
+  --hs-accent: #115e59;
+  --hs-bg: #f7f5f0;
+  --hs-warm: #efe7da;
+  --hs-mint: #ddebe6;
+  --hs-primary: #0f766e;
+}
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.page :is(.yakuma-hero, .yakuma-about)[id] { scroll-margin-top: 0; }
+
+.wordmark {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0;
+  font-synthesis: none;
+}
+.wordmark--header { font-size: max(24px, calc(32 * var(--pencil-unit))); line-height: 1; }
+.wordmark--footer { font-size: calc(80 * var(--pencil-unit)); line-height: 1.4; }
+.micrographic { display: block; color: var(--yk-accent); }
+.micrographic--frequency { width: calc(240 * var(--pencil-unit)); }
+.micrographic--signal { width: calc(168 * var(--pencil-unit)); }
+.micrographic--brackets { width: 100%; height: 100%; }
+.hoshi-text {
+  margin: 0;
+  color: var(--hs-ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: max(16px, calc(var(--type-size, 24) * var(--pencil-unit)));
+  line-height: var(--type-leading, 1.5);
+  letter-spacing: 0;
+}
+.hoshi-text--display { --type-size: 88; --type-leading: 1.08; }
+.hoshi-text--section { --type-size: 48; --type-leading: 1.12; }
+.hoshi-text--display, .hoshi-text--section, .hoshi-text--menu { font-family: var(--font-hoshi); font-weight: 900; }
+.hoshi-text--subheading { --type-size: 28; --type-leading: 1.2; font-family: var(--font-hoshi); font-weight: 700; color: var(--hs-accent); }
+.hoshi-text--lead { --type-leading: 1.6; }
+.hoshi-text--reading { --type-leading: 1.7; }
+.hoshi-text--table, .hoshi-text--table-heading { --type-leading: 1.6; }
+.hoshi-text--table-heading, .hoshi-text--question, .hoshi-text--toc-heading { font-weight: 700; }
+.hoshi-text--metadata { --type-size: 22; }
+.hoshi-text--question { --type-size: 20; --type-leading: 1.45; }
+.hoshi-text--toc, .hoshi-text--toc-heading { --type-size: 20; }
+.hoshi-text--toc-heading, .hoshi-text--utility, .hoshi-text--copyright, .hoshi-text--footer-link { color: var(--hs-accent); }
+.hoshi-text--utility, .hoshi-text--footer-link { --type-size: 16; --type-leading: 1.4; font-weight: 600; }
+.hoshi-text--copyright { --type-size: 16; --type-leading: 1.4; }
+.hoshi-text--slogan { --type-leading: 1.4; }
+.hoshi-text--step-number { --type-size: 42; --type-leading: 1.2; font-family: var(--font-hoshi); font-weight: 700; color: var(--hs-accent); }
+.hoshi-text--step-label { --type-size: 28; font-weight: 600; }
+.hoshi-text--contact-link { --type-size: 30; font-weight: 700; }
+.hoshi-text--navigation { --type-size: 13; --type-leading: 1.15; font-weight: 700; }
+.hoshi-text--locale { --type-size: 18; --type-leading: 1.45; font-weight: 600; }
+.text-align--left { text-align: left; }
+.text-align--center { text-align: center; }
+.text-align--right { text-align: right; }
+
+/* Keep the desktop artboard in CSS pixels. Viewport-derived units cancel out
+   browser page zoom, so the stage is centered and reflows when space is tight. */
+@media (min-width: 1101px) {
+  body:has(.page--yakuma, .legal-pencil--yakuma) { background: var(--yk-bg); }
+
+  .page--yakuma,
+  .legal-pencil--yakuma,
+  body:has(.page--yakuma, .legal-pencil--yakuma) .site-header--yakuma,
+  body:has(.page--yakuma, .legal-pencil--yakuma) .site-footer--yakuma {
+    --pencil-unit: 1px;
+    width: 1920px;
+    max-width: 100%;
+  }
+
+  .page--yakuma,
+  .legal-pencil--yakuma,
+  body:has(.page--yakuma, .legal-pencil--yakuma) .site-footer--yakuma { margin-inline: auto; }
+
+  body:has(.page--yakuma, .legal-pencil--yakuma) .site-header--yakuma {
+    left: 50%;
+    right: auto;
+    translate: -50% 0;
+  }
+}
+
+/* Narrow desktop windows keep readable type and rearrange secondary artwork
+   instead of shrinking the entire page (which would also neutralize zoom). */
+@media (min-width: 1101px) and (max-width: 1919px) {
+  .page--yakuma .yakuma-projects__showcase {
+    grid-template-columns: minmax(0, 352px) minmax(0, 720px) minmax(0, 352px);
+  }
+  .page--yakuma .yakuma-faq__content { grid-template-columns: minmax(0, 1fr) 400px; gap: 32px; }
+  .page--yakuma .yakuma-contact__body { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page--yakuma .contact-form--pencil .contact-form__captcha,
+  .page--yakuma .contact-form--pencil .action-link { grid-column: 1 / -1; }
+}
+
+@media (min-width: 1101px) and (max-width: 1783px) {
+  .page--yakuma .capability-carousel__viewport { gap: 24px; }
+  .page--yakuma .capability-carousel__slide { width: auto; min-width: 0; flex: 1 1 0; }
+  .page--yakuma .capability-window__identity { margin-inline: 14px; padding-inline: 12px; }
+  .page--yakuma .capability-window h3 { font-size: 36px; }
+  .page--yakuma .capability-window > p { white-space: normal; }
+}
+
+@media (min-width: 1601px) and (max-width: 1726px) {
+  .page--yakuma .featured-project-window__details { flex-wrap: wrap; }
+  .page--yakuma .featured-project-window .action-link { margin-left: auto; }
+}
+
+@media (min-width: 1101px) and (max-width: 1600px) {
+  .page--yakuma .yakuma-projects__showcase { display: flex; justify-content: center; }
+  .page--yakuma .project-annotation { display: none; }
+  .page--yakuma .featured-project-window { width: min(720px, 100%); }
+}
+
+@media (min-width: 1101px) and (max-width: 1500px) {
+  .page--yakuma .yakuma-hero__globe { right: -110px; }
+  .page--yakuma .yakuma-hero__label,
+  .page--yakuma .yakuma-hero__annotation { display: none; }
+  .page--yakuma .yakuma-about__intro { max-width: 100%; }
+  .page--yakuma .garment-label { display: none; }
+  .page--yakuma .project-archive-label { display: none; }
+  .page--yakuma .yakuma-faq__content { grid-template-columns: minmax(0, 1fr) 300px; gap: 32px; }
+  .page--yakuma .yakuma-faq > .faq-signal { display: none; }
+  .page--yakuma .answer-index { width: 300px; }
+  .page--yakuma .contact-routing { display: none; }
+}
+
+@media (max-width: 1100px) {
+  :root { --pencil-unit: calc(100vw / 1080); }
+  .wordmark--header { font-size: max(24px, calc(60 * var(--pencil-unit))); line-height: 1.35; }
+  .wordmark--footer { font-size: calc(112 * var(--pencil-unit)); }
+  .hoshi-text { --type-size: 36; }
+  .hoshi-text--display, .hoshi-text--section { --type-size: 84; --type-leading: 1.08; }
+  .hoshi-text--lead { --type-leading: 1.5; }
+  .hoshi-text--subheading, .hoshi-text--contact-link { --type-size: 40; }
+  .hoshi-text--metadata { --type-size: 30; }
+  .hoshi-text--utility { --type-size: 26; }
+  .hoshi-text--copyright { --type-size: 24; }
+  .hoshi-text--footer-link { --type-size: 28; }
+  .hoshi-text--slogan { --type-size: 34; }
+  .hoshi-text--step-number { --type-size: 48; }
+  .hoshi-text--menu { --type-size: 78; --type-leading: 1.2; }
+  .hoshi-text--locale { --type-size: 42; }
+}

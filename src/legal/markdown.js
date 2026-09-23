@@ -49,8 +49,8 @@ export function parseLegalMarkdown(markdown) {
 
   for (let index = 0; index < lines.length; index += 1) {
     const rawLine = lines[index];
-    const hasHardBreak = / {2,}$/.test(rawLine);
-    const line = rawLine.trimEnd();
+    const hasHardBreak = /(?: {2,}|\\)$/.test(rawLine);
+    const line = rawLine.trimEnd().replace(/\\$/, '');
     const heading = /^(#{1,4})\s+(.*)$/.exec(line);
     const horizontalRule = /^\s{0,3}(?:---+|\*\*\*+|___+)\s*$/.exec(line);
     const blockquote = /^>\s?(.*)$/.exec(line);

@@ -1,8 +1,8 @@
-import { placeholderAssets } from '../assets/pencil-placeholders';
+import hoshiFeatureBanner from '../assets/pencil-hoshi/feature-banner.webp';
 import { hoshiStoreLinks } from './storeLinks';
 
 export const hoshiDownloadConfig = {
   fallbackPath: '/games/hoshi',
-  previewImage: placeholderAssets.hoshiFinalDevice,
+  previewImage: hoshiFeatureBanner,
   storeLinks: hoshiStoreLinks,
 };

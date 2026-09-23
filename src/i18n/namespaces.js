@@ -1,1 +1,1 @@
-export const translationNamespaces = ['common', 'landing', 'services', 'hoshi'];
+export const translationNamespaces = ['common', 'landing', 'hoshi'];

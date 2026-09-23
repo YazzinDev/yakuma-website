@@ -1,4 +1,21 @@
-export default function FaqItem({ answer, question }) {
+import { useEffect, useRef } from 'react';
+
+export default function FaqItem({ answer, initiallyOpenOnMobile = false, question }) {
+  const itemRef = useRef(null);
+
+  useEffect(() => {
+    if (!initiallyOpenOnMobile) return undefined;
+
+    const media = window.matchMedia('(max-width: 1100px)');
+    const syncOpenState = () => {
+      if (itemRef.current) itemRef.current.open = media.matches;
+    };
+
+    syncOpenState();
+    media.addEventListener('change', syncOpenState);
+    return () => media.removeEventListener('change', syncOpenState);
+  }, [initiallyOpenOnMobile]);
+
   function restoreSummaryPosition(summary, topBeforeToggle) {
     const topAfterToggle = summary.getBoundingClientRect().top;
     const delta = topAfterToggle - topBeforeToggle;
@@ -26,7 +43,7 @@ export default function FaqItem({ answer, question }) {
   }
 
   return (
-    <details className="faq-item">
+    <details className="faq-item" ref={itemRef}>
       <summary onClickCapture={keepSummaryPosition}>
         <span className="faq-item__question">{question}</span>
       </summary>

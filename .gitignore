@@ -24,6 +24,7 @@ dist/
 .vite-react-ssg-temp/
 npm-debug.log*
 .codex-devserver/
+.codex-visual/
 .idea/
 src/legal/documentDates.generated.js
 

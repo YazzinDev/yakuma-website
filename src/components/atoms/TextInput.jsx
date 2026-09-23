@@ -6,6 +6,9 @@ export default function TextInput({
   multiline = false,
   name,
   onChange,
+  onInvalid,
+  error,
+  showRequired = false,
   placeholder,
   required = false,
   type = 'text',
@@ -16,19 +19,24 @@ export default function TextInput({
 
   return (
     <label className={`text-field ${multiline ? 'text-field--large' : ''}`} htmlFor={controlId}>
-      <span>{label}</span>
+      <span id={`${controlId}-label`}>{label}{showRequired && required && <span aria-hidden="true"> *</span>}</span>
       <Control
         id={controlId}
         autoComplete={autoComplete}
         inputMode={inputMode}
         name={name}
         onChange={onChange}
+        onInvalid={onInvalid}
+        aria-invalid={error ? true : undefined}
+        aria-labelledby={`${controlId}-label`}
+        aria-describedby={error ? `${controlId}-error` : undefined}
         placeholder={placeholder}
         required={required}
         rows={multiline ? 5 : undefined}
         type={multiline ? undefined : type}
         value={value}
       />
+      {error && <span className="text-field__error" id={`${controlId}-error`}>{error}</span>}
     </label>
   );
 }

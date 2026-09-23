@@ -1,0 +1,49 @@
+.page .yakuma-faq[id] { scroll-margin-top: 0; }
+.yakuma-faq { position: relative; min-height: calc(1080 * var(--pencil-unit)); padding: calc(148 * var(--pencil-unit)) calc(112 * var(--pencil-unit)) calc(136 * var(--pencil-unit)); background: var(--yk-bg); color: var(--yk-ink); }
+.yakuma-faq h2 { margin: 0; font: 400 calc(88 * var(--pencil-unit))/1.08 var(--font-heading); letter-spacing: 0; }
+.yakuma-faq__intro { margin: calc(23 * var(--pencil-unit)) 0 0; max-width: calc(1140 * var(--pencil-unit)); font: 400 max(16px, calc(24 * var(--pencil-unit)))/1.4 var(--font-body); color: var(--yk-muted); }
+.yakuma-faq__content { display: grid; grid-template-columns: minmax(0, calc(1120 * var(--pencil-unit))) calc(400 * var(--pencil-unit)); justify-content: space-between; gap: calc(56 * var(--pencil-unit)); margin-top: calc(50.36 * var(--pencil-unit)); }
+.yakuma-faq-item { border-top: 1px solid var(--yk-line); }
+.yakuma-faq-item h3 { margin: 0; font: inherit; }
+.yakuma-faq-item button { display: grid; grid-template-columns: calc(64 * var(--pencil-unit)) minmax(0, 1fr) calc(40 * var(--pencil-unit)); gap: calc(24 * var(--pencil-unit)); align-items: start; width: 100%; min-height: calc(93 * var(--pencil-unit)); padding: calc(23 * var(--pencil-unit)) calc(12 * var(--pencil-unit)) calc(24 * var(--pencil-unit)) 0; border: 0; background: none; color: var(--yk-ink); font: 400 max(16px, calc(28 * var(--pencil-unit)))/1.4 var(--font-body); text-align: left; cursor: pointer; }
+.yakuma-faq-item button:focus-visible { outline: 2px solid var(--yk-accent); outline-offset: 4px; }
+.yakuma-faq-item__index { padding-top: calc(6 * var(--pencil-unit)); font: 400 calc(16 * var(--pencil-unit))/1.4 var(--font-mono); color: var(--yk-accent); }
+.faq-toggle { display: block; width: 100%; overflow: visible; color: var(--yk-accent); }
+.faq-toggle__corners { color: var(--yk-line); }
+.yakuma-faq-item__answer { margin-left: calc(88 * var(--pencil-unit)); max-width: calc(820 * var(--pencil-unit)); padding-bottom: calc(61.8 * var(--pencil-unit)); color: var(--yk-muted); font: 400 max(16px, calc(24 * var(--pencil-unit)))/1.4 var(--font-body); }
+.yakuma-faq-item[data-open="true"] button { min-height: calc(88 * var(--pencil-unit)); padding-bottom: calc(24 * var(--pencil-unit)); }
+.yakuma-faq-item__answer p { margin: 0; }
+.faq-signal { color: var(--yk-accent); width: calc(400 * var(--pencil-unit)); }
+.yakuma-faq > .faq-signal { position: absolute; top: calc(148 * var(--pencil-unit)); right: calc(112 * var(--pencil-unit)); }
+.faq-signal > .micrographic { display: block; width: 100%; height: calc(46.6667 * var(--pencil-unit)); }
+.faq-signal__route { display: block; width: 100%; height: calc(40 * var(--pencil-unit)); margin-top: calc(16.6666 * var(--pencil-unit)); color: var(--yk-line); }
+.faq-signal__desktop { display: block; margin-top: calc(16.6667 * var(--pencil-unit)); padding-bottom: calc(10 * var(--pencil-unit)); border-bottom: 1px solid var(--yk-line); font: 400 calc(13 * var(--pencil-unit))/1.2 var(--font-mono); letter-spacing: calc(1.4 * var(--pencil-unit)); }
+.faq-signal__mobile, .yakuma-faq__mobile-index { display: none; }
+.answer-index { color: var(--yk-accent); font: 400 calc(16 * var(--pencil-unit))/1.4 var(--font-mono); }
+.answer-index__edition { display: flex; justify-content: space-between; padding-bottom: calc(15.6 * var(--pencil-unit)); border-bottom: 1px solid var(--yk-line); }
+.answer-index__brand { display: flex; justify-content: space-between; align-items: flex-start; margin-top: calc(17 * var(--pencil-unit)); }
+.answer-index__brand strong { font: 400 calc(92 * var(--pencil-unit))/1.4 var(--font-heading); }
+.answer-index__brand img { width: calc(88 * var(--pencil-unit)); height: auto; margin-top: calc(26 * var(--pencil-unit)); margin-right: calc(6 * var(--pencil-unit)); }
+.answer-index__contents { margin-top: calc(31.2 * var(--pencil-unit)); padding-bottom: calc(34 * var(--pencil-unit)); border-bottom: 1px solid var(--yk-line); }
+.answer-index > p { margin: calc(23 * var(--pencil-unit)) 0 0; font-size: calc(18 * var(--pencil-unit)); }
+.faq-response { display: flex; justify-content: space-between; align-items: center; margin-top: calc(81.6 * var(--pencil-unit)); }
+.faq-response img { width: 60%; height: auto; }
+.faq-response svg { width: 30%; overflow: visible; }
+.yakuma-faq .section-closing > span { display: flex; justify-content: space-between; width: 100%; }
+@media (max-width: 1100px) {
+  .yakuma-faq { min-height: calc(1920 * var(--pencil-unit)); padding: calc(284 * var(--pencil-unit)) calc(64 * var(--pencil-unit)) calc(244 * var(--pencil-unit)); }
+  .yakuma-faq h2 { font-size: calc(112 * var(--pencil-unit)); line-height: 1.4; }
+  .yakuma-faq h2 span { display: block; }
+  .yakuma-faq__intro, .answer-index, .faq-signal__desktop, .yakuma-faq__closing-count { display: none; }
+  .yakuma-faq > .faq-signal { width: calc(320 * var(--pencil-unit)); top: calc(312 * var(--pencil-unit)); right: calc(64 * var(--pencil-unit)); }
+  .faq-signal > .micrographic { height: calc(37.3333 * var(--pencil-unit)); }
+  .faq-signal__route { height: calc(32 * var(--pencil-unit)); margin-top: calc(18.6667 * var(--pencil-unit)); color: var(--yk-accent); }
+  .faq-signal__mobile { display: block; margin-top: calc(18 * var(--pencil-unit)); font: 400 calc(34 * var(--pencil-unit))/1.15 var(--font-mono); }
+  .yakuma-faq__content { display: block; margin-top: calc(28.4 * var(--pencil-unit)); }
+  .yakuma-faq__mobile-index { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: calc(29.2 * var(--pencil-unit)); color: var(--yk-accent); font: 400 calc(32 * var(--pencil-unit))/1.4 var(--font-mono); }
+  .yakuma-faq__mobile-index > span:last-child { font-size: calc(24 * var(--pencil-unit)); }
+  .yakuma-faq-item button { grid-template-columns: calc(72 * var(--pencil-unit)) minmax(0, 1fr) calc(40 * var(--pencil-unit)); gap: calc(28 * var(--pencil-unit)); min-height: max(56px, calc(144 * var(--pencil-unit))); padding: calc(27 * var(--pencil-unit)) calc(12 * var(--pencil-unit)) calc(30 * var(--pencil-unit)) 0; font-size: max(16px, calc(36 * var(--pencil-unit))); }
+  .yakuma-faq-item__index { font-size: max(10px, calc(28 * var(--pencil-unit))); padding-top: calc(8 * var(--pencil-unit)); }
+  .yakuma-faq-item[data-open="true"] button { min-height: max(44px, calc(114 * var(--pencil-unit))); padding-bottom: calc(30 * var(--pencil-unit)); }
+  .yakuma-faq-item__answer { margin-left: calc(100 * var(--pencil-unit)); max-width: calc(800 * var(--pencil-unit)); font-size: max(16px, calc(36 * var(--pencil-unit))); padding-bottom: calc(84.4 * var(--pencil-unit)); }
+}

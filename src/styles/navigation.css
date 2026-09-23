@@ -1,0 +1,49 @@
+/* Navigation molecule keW2z; active corners retain their size on every label. */
+.header-nav a { position: relative; }
+.header-nav__brackets { position: absolute; inset: -12px -14px; pointer-events: none; visibility: hidden; color: var(--yk-accent); }
+.header-nav__brackets i { position: absolute; width: 10px; height: 10px; border-color: currentColor; border-style: solid; border-width: 0; }
+.header-nav__brackets i:nth-child(1) { top: 0; left: 0; border-left-width: 1px; border-top-width: 1px; }
+.header-nav__brackets i:nth-child(2) { top: 0; right: 0; border-right-width: 1px; border-top-width: 1px; }
+.header-nav__brackets i:nth-child(3) { bottom: 0; left: 0; border-left-width: 1px; border-bottom-width: 1px; }
+.header-nav__brackets i:nth-child(4) { bottom: 0; right: 0; border-right-width: 1px; border-bottom-width: 1px; }
+.header-nav a[aria-current="location"] .header-nav__brackets { visibility: visible; }
+.site-header--hoshi .header-nav__brackets { display: none; }
+.site-header--hoshi .header-nav a[aria-current="location"] { color: var(--hs-accent); text-decoration: underline; text-underline-offset: 8px; }
+.menu-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+/* Yakuma header geometry from keW2z / nNRCw. Hoshi retains its own styling. */
+.site-header:not(.site-header--hoshi) {
+  min-height: calc(101 * var(--pencil-unit));
+  padding-inline: calc(56 * var(--pencil-unit));
+  grid-template-columns: 1fr auto 1fr;
+  gap: calc(32 * var(--pencil-unit));
+  background: var(--yk-bg);
+  color: var(--yk-ink);
+  box-shadow: none;
+  --header-background-color: var(--yk-bg);
+}
+.site-header:not(.site-header--hoshi)::after {
+  content: ''; position: absolute; left: calc(56 * var(--pencil-unit)); right: calc(56 * var(--pencil-unit)); bottom: 0; height: 1px; background: var(--yk-line);
+}
+.site-header:not(.site-header--hoshi) .header-nav--desktop { gap: calc(32 * var(--pencil-unit)); }
+.site-header:not(.site-header--hoshi) .header-nav--desktop a { display: flex; align-items: center; justify-content: center; height: calc(44 * var(--pencil-unit)); font: 400 calc(18 * var(--pencil-unit))/1 var(--font-mono); letter-spacing: 0; }
+.site-header:not(.site-header--hoshi) .header-nav--desktop a:nth-child(1) { width: calc(110 * var(--pencil-unit)); }
+.site-header:not(.site-header--hoshi) .header-nav--desktop a:nth-child(2) { width: calc(144 * var(--pencil-unit)); }
+.site-header:not(.site-header--hoshi) .header-nav--desktop a:nth-child(3) { width: calc(84 * var(--pencil-unit)); }
+.site-header:not(.site-header--hoshi) .header-nav--desktop a:nth-child(4) { width: calc(180 * var(--pencil-unit)); }
+.site-header:not(.site-header--hoshi) .header-nav--desktop .header-nav__brackets { inset: 0; }
+.site-header:not(.site-header--hoshi) .language-switcher { border: 0; background: transparent; gap: calc(10 * var(--pencil-unit)); }
+.site-header:not(.site-header--hoshi) .language-switcher__item { background: transparent; border: 0; padding: 0; min-width: 0; min-height: 0; font: 400 calc(16 * var(--pencil-unit))/1 var(--font-mono); color: var(--yk-muted); }
+.site-header:not(.site-header--hoshi) .language-switcher__item[aria-current='page'] { color: var(--yk-ink); }
+.site-header:not(.site-header--hoshi) .language-switcher__item + .language-switcher__item::before { content: '/'; color: var(--yk-muted); margin-right: calc(10 * var(--pencil-unit)); }
+@media (max-width: 1100px) {
+  .site-header:not(.site-header--hoshi) { min-height: calc(194 * var(--pencil-unit)); padding-inline: calc(64 * var(--pencil-unit)); grid-template-columns: 1fr auto; }
+  .site-header:not(.site-header--hoshi)::after { left: calc(64 * var(--pencil-unit)); right: calc(64 * var(--pencil-unit)); }
+  .site-header:not(.site-header--hoshi) .menu-toggle { width: max(44px, calc(96 * var(--pencil-unit))); height: max(44px, calc(96 * var(--pencil-unit))); }
+  .site-header:not(.site-header--hoshi) .menu-toggle span { width: calc(54 * var(--pencil-unit)); }
+  .site-header:not(.site-header--hoshi) .menu-toggle::before, .site-header:not(.site-header--hoshi) .menu-toggle::after { content: ''; position: absolute; width: 10px; height: 10px; border: 1px solid var(--yk-accent); }
+  .site-header:not(.site-header--hoshi) .menu-toggle::before { left: 0; top: 0; border-right: 0; border-bottom: 0; }
+  .site-header:not(.site-header--hoshi) .menu-toggle::after { right: 0; bottom: 0; border-left: 0; border-top: 0; }
+  .site-header:not(.site-header--hoshi) .site-header__mobile-menu { background: var(--yk-bg); }
+  .site-header:not(.site-header--hoshi) .site-header__mobile-language .language-switcher__item { font-size: max(16px, calc(42 * var(--pencil-unit))); }
+}

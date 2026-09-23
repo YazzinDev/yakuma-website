@@ -1,6 +1,6 @@
 import { siteUrl } from '../../config/site.js';
 import { supportedLanguages } from '../../i18n/languages.js';
-import { parseLegalMarkdown } from '../../legal/markdown.js';
+import { buildLegalDocumentModel } from '../../legal/documentModel.js';
 
 const inlinePattern =
   /(`[^`]+`|\*\*\*[^*]+\*\*\*|\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\((?:https?:\/\/|mailto:|\/)[^)]+\)|https?:\/\/[^\s]+|[\w.+-]+@[\w.-]+\.[a-z]{2,})/gi;
@@ -56,7 +56,7 @@ function renderLink(href, children, key, language) {
   );
 }
 
-function renderInlineToken(token, key, language) {
+function renderInlineToken(token, key, language, allowLinks) {
   const markdownLink = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(token);
   const inlineCode = /^`(.+)`$/.exec(token);
   const boldEmphasis = /^\*\*\*(.+)\*\*\*$/.exec(token);
@@ -64,7 +64,9 @@ function renderInlineToken(token, key, language) {
   const emphasis = /^\*(.+)\*$/.exec(token);
 
   if (markdownLink) {
-    return renderLink(markdownLink[2], renderInline(markdownLink[1], language), key, language);
+    return allowLinks
+      ? renderLink(markdownLink[2], renderInline(markdownLink[1], language, false), key, language)
+      : token;
   }
 
   if (inlineCode) {
@@ -88,17 +90,17 @@ function renderInlineToken(token, key, language) {
   }
 
   if (/^https?:\/\//i.test(token)) {
-    return renderLink(token, token, key, language);
+    return allowLinks ? renderLink(token, token, key, language) : token;
   }
 
   if (/^[\w.+-]+@[\w.-]+\.[a-z]{2,}$/i.test(token)) {
-    return renderLink(`mailto:${token}`, token, key, language);
+    return allowLinks ? renderLink(`mailto:${token}`, token, key, language) : token;
   }
 
   return token;
 }
 
-function renderInline(text, language) {
+function renderInline(text, language, allowLinks = true) {
   const nodes = [];
   let cursor = 0;
 
@@ -106,7 +108,7 @@ function renderInline(text, language) {
     if (offset > cursor) {
       nodes.push(text.slice(cursor, offset));
     }
-    nodes.push(renderInlineToken(token, `${token}-${offset}`, language));
+    nodes.push(renderInlineToken(token, `${token}-${offset}`, language, allowLinks));
     cursor = offset + token.length;
     return token;
   });
@@ -131,20 +133,22 @@ function Paragraph({ language, lines }) {
   );
 }
 
-export default function LegalDocument({ language, markdown }) {
-  const blocks = parseLegalMarkdown(markdown);
+export default function LegalDocument({ language, markdown, model }) {
+  const { blocks } = model ?? buildLegalDocumentModel(markdown);
 
   return (
     <article className="legal-document">
       {blocks.map((block, index) => {
-        if (block.type === 'h1') return <h1 key={index}>{block.text}</h1>;
-        if (block.type === 'h2') return <h2 key={index}>{block.text}</h2>;
-        if (block.type === 'h3') return <h3 key={index}>{block.text}</h3>;
-        if (block.type === 'h4') return <h4 key={index}>{block.text}</h4>;
+        if (/^h[1-4]$/.test(block.type)) {
+          const Heading = block.type === 'h1' ? 'h2' : block.type;
+          return <Heading id={block.id} key={block.id}>{renderInline(block.text, language)}</Heading>;
+        }
         if (block.type === 'separator') return <hr key={index} />;
         if (block.type === 'table') {
           return (
-            <div className="legal-document__table-wrapper" key={index}>
+            <div className="legal-document__table-wrapper" key={index} tabIndex={0} role="region"
+              aria-labelledby={block.labelledBy || undefined}
+              aria-label={block.labelledBy ? undefined : language === 'de' ? 'Datentabelle' : 'Data table'}>
               <table>
                 <thead>
                   <tr>

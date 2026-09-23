@@ -17,19 +17,7 @@
     "mark": "YAKUMA"
   },
   "images": {
-    "about": "Editoriales Yakuma-Visual zur Studioarbeit",
-    "services": "Editoriales Yakuma-Visual für Software, Games und digitale Systeme",
     "hoshiProject": "Hoshi: Star Sudoku Projektvorschau"
-  },
-  "services": {
-    "kicker": "02 / LEISTUNGEN",
-    "title": "SOFTWARE, GAMES, DIGITALE SYSTEME",
-    "body": "Yakuma gestaltet und entwickelt moderne Anwendungen, spielerische digitale Produkte und interaktive Systeme. Die Arbeit reicht von Flutter-Apps und Backend-Plattformen bis zu Game-Konzepten, Brand Experiences und produktionsreifen Produktoberflächen.",
-    "items": [
-      { "label": "SOFTWARE ENGINEERING", "href": "/services/software-engineering" },
-      { "label": "GAME DESIGN", "href": "/services/game-design" },
-      { "label": "INTERACTIVE PRODUCT DESIGN", "href": "/services/interactive-product-design" }
-    ]
   },
   "projects": {
     "kicker": "03 / PROJEKTE",
@@ -46,27 +34,27 @@
   "faq": {
     "kicker": "04 / FAQ",
     "title": "HÄUFIGE FRAGEN",
-    "intro": "Viele Besucher kommen mit Produktideen zu Yakuma, die vielversprechend, aber noch unklar sind: App-Scope, Designrichtung, technische Struktur oder Launch-Prioritäten. Yakuma hilft, diese Unsicherheit in einen klaren digitalen Produktpfad zu übersetzen.",
+    "intro": "Über das Studio, unsere Arbeit und den direkten Draht zu uns.",
     "items": [
       {
         "question": "Wer ist Yakuma?",
-        "answer": "Yakuma ist ein digitales Produktstudio von Yassin Kuczma. Es baut polierte Software, mobile Apps, Games und interaktive Erlebnisse mit hohem visuellem Anspruch und praktischer Engineering-Basis."
+        "answer": "Yakuma ist ein digitales Produktstudio, gegründet von Yassin Kuczma. Wir entwickeln Software, mobile Apps, Spiele und interaktive Erlebnisse."
       },
       {
         "question": "Was entwickelt Yakuma?",
-        "answer": "Yakuma entwickelt Hoshi Star Sudoku, eine ruhige Sudoku-App für fokussiertes tägliches Spielen. Außerdem entstehen App-Konzepte, Backend-Systeme, Game-Ideen und Produktoberflächen."
+        "answer": "Yakuma entwickelt Hoshi: Star Sudoku, ein Sudoku-Spiel auf einem sternförmigen Spielfeld. Daneben arbeiten wir an App-Konzepten, Backend-Systemen, Spielideen und Produktoberflächen."
       },
       {
         "question": "Wer hat Yakuma gegründet?",
-        "answer": "Yakuma wurde von Yassin Kuczma gegründet. Das Studio verbindet Software Engineering, Produktdenken, visuelles Design und interaktive Arbeit in einer fokussierten Produktpraxis."
+        "answer": "Yakuma wurde von Yassin Kuczma gegründet. Seine Arbeit verbindet Software Engineering, Produktentwicklung, visuelles Design und interaktive Erlebnisse."
       },
       {
         "question": "Welche Leistungen bietet Yakuma an?",
-        "answer": "Yakuma bietet Software Engineering, Flutter-App-Entwicklung, Backend-Entwicklung, Game Design, Produktdesign und Interface Design. Die Arbeit kann Konzepte, Architektur, Prototypen, Implementierung und Iteration umfassen."
+        "answer": "Yakuma bietet Software Engineering, Flutter-Apps, Backend-Entwicklung, Game Design, Produktdesign und Interface Design, vom Konzept und Prototyp bis zur Umsetzung und Weiterentwicklung."
       },
       {
         "question": "Wie kann ich Yakuma kontaktieren?",
-        "answer": "Du kannst Yakuma über das Formular auf dieser Seite oder per E-Mail an mail@yakuma.de kontaktieren. Hilfreich sind Angaben zum Produkt, aktuellen Stand, Zielplattform und ob es um Software, ein Game oder ein digitales Erlebnis geht."
+        "answer": "Schreib an mail@yakuma.de oder nutze das Kontaktformular. Erzähl uns, was du bauen möchtest, wo dein Projekt steht und welche Plattformen du im Blick hast."
       }
     ]
   }

@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { setDocumentLanguage } from '../i18n/config';
 import PageMeta from '../components/atoms/PageMeta';
-import SectionKicker from '../components/atoms/SectionKicker';
 import PageShell from '../layouts/PageShell';
 
 export default function HoshiDeleteAccountPage({ language }) {
@@ -35,49 +34,30 @@ export default function HoshiDeleteAccountPage({ language }) {
         language={normalizedLanguage}
         mainClassName="page page--hoshi account-deletion-page"
       >
-        <section className="account-deletion-hero hoshi-hero">
-          <div className="hoshi-hero__content">
-            <SectionKicker>{deletion.eyebrow}</SectionKicker>
-            <h1>{deletion.title}</h1>
-            <p>{deletion.introduction}</p>
-          </div>
-        </section>
-
-        <section aria-labelledby="account-deletion-steps-title" className="account-deletion-instructions gameplay-section">
-          <div className="account-deletion-instructions__content gameplay-section__copy">
-            <SectionKicker>{deletion.steps.eyebrow}</SectionKicker>
-            <h2 id="account-deletion-steps-title">{deletion.steps.title}</h2>
-            <p className="account-deletion-instructions__introduction">{deletion.steps.introduction}</p>
-            <ol className="account-deletion-steps">
+        <section className="hoshi-delete">
+          <h1>{deletion.title.split(' ').map((word, index) => <span key={`${word}-${index}`}>{index ? ` ${word}` : word}</span>)}</h1>
+          <p className="hoshi-delete__intro">{deletion.introduction}</p>
+          <div className="hoshi-delete__grid">
+            <ol aria-label={deletion.steps.title} className="hoshi-delete__steps">
               {deletion.steps.items.map((step, index) => (
                 <li key={step}>
-                  <span aria-hidden="true" className="account-deletion-steps__number">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span aria-hidden="true" className="account-deletion-steps__separator">
-                    −
-                  </span>
-                  <p className="account-deletion-steps__text">{step}</p>
+                  <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                  <p>{step}</p>
                 </li>
               ))}
             </ol>
-          </div>
-        </section>
-
-        <section aria-labelledby="account-deletion-support-title" className="account-deletion-support news-section">
-          <div className="account-deletion-support__content">
-            <SectionKicker>{deletion.support.eyebrow}</SectionKicker>
-            <h2 id="account-deletion-support-title">{deletion.support.title}</h2>
-            <p>{deletion.support.introduction}</p>
-            <a className="account-deletion-support__link" href={supportHref}>
-              <span>{deletion.support.email}</span>
-              <span className="account-deletion-support__subject">{deletion.support.subjectLabel}</span>
-            </a>
-            <aside className="account-deletion-notice" role="note">
-              <h3>{deletion.notice.title}</h3>
-              <p>{deletion.notice.body}</p>
+            <aside className="hoshi-delete__support">
+              <h2>{deletion.support.title}</h2>
+              <p>{deletion.support.introduction}</p>
+              <a href={supportHref}>{deletion.support.email}</a>
+              <p className="hoshi-delete__subject">{deletion.support.subjectLabel}</p>
             </aside>
           </div>
+          <aside className="hoshi-delete__notice" role="note">
+            <h2>{deletion.notice.title}</h2>
+            <p>{deletion.notice.body}</p>
+          </aside>
+          <div className="hoshi-delete__closing"><span>HOSHI / ACCOUNT SUPPORT</span></div>
         </section>
       </PageShell>
     </>

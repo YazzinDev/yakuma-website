@@ -2,12 +2,6 @@ import { supportedLanguages } from '../i18n/languages.js';
 
 export { supportedLanguages };
 
-export const serviceIds = [
-  'software-engineering',
-  'game-design',
-  'interactive-product-design',
-];
-
 export const legalDocuments = {
   yakuma: ['legal-disclosure', 'privacy-policy'],
   hoshi: ['legal-disclosure', 'privacy-policy', 'terms-of-service'],
@@ -64,7 +58,6 @@ export function getAlternateLanguageHref(location, targetLanguage) {
 export function buildLocalizedStaticRoutes() {
   return supportedLanguages.flatMap((language) => [
     `/${language}`,
-    ...serviceIds.map((serviceId) => `/${language}/services/${serviceId}`),
     `/${language}/games/hoshi`,
     `/${language}/games/hoshi/download`,
     `/${language}/games/hoshi/delete-account`,

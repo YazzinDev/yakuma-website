@@ -1,10 +1,9 @@
 import assert from 'node:assert/strict';
+import { hoshiStoreLinks } from '../src/config/storeLinks.js';
 import { detectHoshiDownloadPlatform, resolveHoshiDownloadTarget } from '../src/utils/hoshiDownloadRedirect.js';
 
-const storeLinks = {
-  appStore: 'https://apps.apple.com/app/hoshi',
-  googlePlay: 'https://play.google.com/store/apps/details?id=de.yakuma.hoshi',
-};
+assert.equal(hoshiStoreLinks.googlePlay, 'https://play.google.com/store/apps/details?id=de.yakuma.hoshi');
+assert.equal(hoshiStoreLinks.appStore, null);
 
 assert.equal(
   detectHoshiDownloadPlatform({ userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)' }),
@@ -18,10 +17,10 @@ assert.equal(
 );
 
 assert.deepEqual(
-  resolveHoshiDownloadTarget({ userAgent: 'Android' }, storeLinks),
-  { platform: 'android', url: storeLinks.googlePlay },
+  resolveHoshiDownloadTarget({ userAgent: 'Android' }, hoshiStoreLinks),
+  { platform: 'android', url: hoshiStoreLinks.googlePlay },
 );
-assert.equal(resolveHoshiDownloadTarget({ userAgent: 'Android' }, { appStore: null, googlePlay: null }), null);
-assert.equal(resolveHoshiDownloadTarget({ userAgent: 'Windows' }, storeLinks), null);
+assert.equal(resolveHoshiDownloadTarget({ userAgent: 'iPhone' }, hoshiStoreLinks), null);
+assert.equal(resolveHoshiDownloadTarget({ userAgent: 'Windows' }, hoshiStoreLinks), null);
 
 console.log('Download redirect verification passed.');

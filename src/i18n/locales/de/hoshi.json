@@ -53,14 +53,14 @@
   },
   "nav": {
     "about": "ÜBER DAS SPIEL",
-    "gameplay": "SPIELABLAUF",
+    "gameplay": "SO SPIELST DU",
     "news": "NEUIGKEITEN",
     "faq": "FAQ"
   },
   "hero": {
     "eyebrow": "FREE TO PLAY / IOS + ANDROID",
     "title": "HOSHI: STAR SUDOKU",
-    "subtitle": "Ein ruhiges, cleveres Sudoku-Spiel mit Dreiecks-Rätseln, geführten Taktiken und langfristigem Fortschritt, damit sich jede Lösung sinnvoll anfühlt.",
+    "subtitle": "Sudoku neu gedacht: Löse Zahlenrätsel auf einem markanten, sternförmigen Spielfeld. Auch ohne WLAN spielbar.",
     "badges": {
       "appStoreSmall": "Download im",
       "appStore": "App Store",
@@ -71,14 +71,23 @@
   },
   "images": {
     "hero": "Hoshi: Star Sudoku Hero-Bild",
+    "featureBanner": "Hoshi: Star Sudoku – Sudoku in neuer Form",
     "trailer": "Hoshi Trailer-Vorschau als Platzhalterbild",
     "board": "Hoshi Dreiecks-Sudoku-Platzhalterbild",
     "finalDevice": "Hoshi: Star Sudoku Download-Platzhalterbild"
   },
   "twist": {
     "eyebrow": "SUDOKU NEU GEDACHT",
-    "title": "SUDOKU 2 IST JETZT ERHÄLTLICH",
-    "description": "Hoshi behält das befriedigende Logikgefühl von Sudoku und verändert die Form des Problems. Dreiecksregionen, sternartige Pfade und klare Interaktionen auf Mobilgeräten lassen vertraute Deduktion frisch wirken, ohne den Einstieg unnötig kompliziert zu machen."
+    "title": "SUDOKU, NEU GEFORMT.",
+    "description": "Reihen, Diagonalen und Dreiecksbereiche geben vertrauter Logik eine neue Form. Starte mit dem geführten Tutorial und wähle danach zwischen Casual, Medium, Hard und Expert. Jetzt herunterladen!"
+  },
+  "howToPlay": {
+    "title": "SO SPIELST DU",
+    "description": "Starte mit dem geführten Tutorial. Entdecke das sternförmige Spielfeld, nutze Notizen und Hinweise, schalte Designs frei und verfolge deinen Fortschritt.",
+    "galleryLabel": "Hoshi-Spielansichten",
+    "paginationLabel": "Spielansicht auswählen",
+    "slideAlt": "Hoshi-Spielansicht {{number}} von 5",
+    "showSlide": "Spielansicht {{number}} anzeigen"
   },
   "trailer": {
     "label": "Hoshi Trailer",
@@ -160,34 +169,34 @@
   },
   "faq": {
     "eyebrow": "HÄUFIGE FRAGEN",
-    "title": "WAS MACHT HOSHI ANDERS?",
+    "title": "NEUGIERIG, WIE HOSHI FUNKTIONIERT?",
     "description": "Ein kurzer Leitfaden zum Dreiecks-Sudoku-Erlebnis, wie Yakuma es entwickelt und was Spieler beim kostenlosen Start erwarten können.",
     "items": [
       {
         "question": "Was ist Hoshi: Star Sudoku?",
-        "answer": "Hoshi ist ein Sudoku-inspiriertes Rätselspiel auf einem einzigartig geformten Dreiecksbrett. Es behält das logische Sudoku-Gefühl bei und verändert, wie Spieler Regionen scannen, Muster lesen und Lösungstaktiken entwickeln."
+        "answer": "Hoshi: Star Sudoku interpretiert das klassische Sudoku neu und spielt auf einem markanten, sternförmigen Spielfeld."
       },
       {
         "question": "Wer entwickelt Hoshi?",
         "answer": "Hoshi wird von Yakuma entwickelt, dem unabhängigen Studio hinter Spielerlebnis, visueller Richtung und mobilem Rätselablauf."
       },
       {
-        "question": "Welche neuen Sudoku-Varianten sind spannend?",
-        "answer": "Wer eine frische Sudoku-Variante sucht, sollte Hoshi ausprobieren, weil Deduktion im Zentrum bleibt, aber das Spielbrett in Dreiecksformen, sternartige Regionen und neue räumliche Rhythmen wechselt."
+        "question": "Was macht das Spielfeld anders?",
+        "answer": "Reihen, Diagonalen und Dreiecksbereiche bringen vertraute Sudoku-Logik in eine neue Form."
       },
       {
-        "question": "Bietet Hoshi einen Trainingsmodus?",
-        "answer": "Ja. Hoshi ist darauf ausgelegt, einen Trainingsmodus zu unterstützen, in dem Spieler Taktiken lernen, Mustererkennung verbessern und die Dreieckslogik Schritt für Schritt üben können."
+        "question": "Gibt es ein geführtes Tutorial?",
+        "answer": "Ja. Das Tutorial erklärt dir Schritt für Schritt das sternförmige Spielfeld, Notizen, Hinweise und die wichtigsten Regeln."
       },
       {
-        "question": "Ist Hoshi kostenlos spielbar?",
-        "answer": "Ja. Hoshi ist kostenlos spielbar. Zusätzliche Pro-Funktionen können in der App freigeschaltet werden, wenn Spieler erweiterte Optionen und mehr Komfort möchten."
+        "question": "Kann ich offline spielen?",
+        "answer": "Ja. Du kannst Hoshi-Rätsel ohne WLAN lösen. Einige Online-Funktionen benötigen eine Internetverbindung."
       }
     ]
   },
   "finalCta": {
     "eyebrow": "KOSTENLOS SPIELEN",
-    "title": "IM APP STORE UND BEI GOOGLE PLAY HERUNTERLADEN",
-    "body": "Starte mit klaren Dreiecks-Sudoku-Rätseln und arbeite dich zu schärferen Taktiken, saubereren Lösungen und einem sternbasierten Fortschrittssystem vor."
+    "title": "BEREIT FÜR EINE\nNEUE HERAUSFORDERUNG?",
+    "body": "Wähle deinen Schwierigkeitsgrad und gestalte das Spielfeld nach deinem Geschmack. Löse Rätsel offline, erfülle Quests und verfolge deinen Fortschritt."
   }
 }

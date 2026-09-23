@@ -32,9 +32,14 @@
     "title": "LET'S TALK",
     "body": "Tell Yakuma what you want to build. Use the form fields for project context, timeline, and contact details.",
     "email": "mail@yakuma.de",
+    "pencilBody": "Tell us what you want to build.\nAn early idea is a good place to start.",
+    "orEmail": "Or email",
+    "requiredField": "Please fill in this field.",
+    "invalidEmail": "Please enter a valid email address.",
     "subjectPrefix": "Yakuma inquiry",
     "statusOpening": "Opening your email app.",
     "statusCaptcha": "Please complete the captcha first.",
+    "statusCaptchaUnavailable": "The captcha could not load. Please email us directly or try again later.",
     "statusSending": "Sending inquiry.",
     "statusSendingShort": "SENDING",
     "statusSuccess": "Thank you. Your inquiry has been sent.",
@@ -47,8 +52,10 @@
       "message": { "label": "MESSAGE", "placeholder": "Short project description" }
     }
   },
+  "brand": {
+    "slogan": "We build apps, games and digital tools,\nfrom the first sketch to release and beyond."
+  },
   "footer": {
-    "studioLine": "Premium software, game design, and digital product development with an editorial edge.",
     "copyright": "COPYRIGHT 2026 YAKUMA / YASSIN KUCZMA",
     "madeInGermany": "MADE IN GERMANY",
     "legalLinksAria": "Legal links",
@@ -57,6 +64,7 @@
     "termsOfService": "TERMS OF SERVICE"
   },
   "legal": {
+    "revision": "Last updated: {{date}}",
     "updated": "Last change to this file: {{date}}",
     "metaDescriptionHoshi": "{{title}} for Hoshi: Star Sudoku.",
     "metaDescriptionYakuma": "{{title}} for Yakuma.",

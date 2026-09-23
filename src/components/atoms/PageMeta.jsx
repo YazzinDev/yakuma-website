@@ -41,6 +41,7 @@ export default function PageMeta({
   language,
   noIndex = false,
   path,
+  preloadImage,
   structuredData,
   title,
 }) {
@@ -60,6 +61,7 @@ export default function PageMeta({
       <title>{title}</title>
       <meta name="title" content={title} />
       <meta name="description" content={description} />
+      {preloadImage ? <link as="image" fetchPriority="high" href={preloadImage} rel="preload" /> : null}
       {noIndex ? <meta name="robots" content="noindex, nofollow" /> : null}
       <link rel="canonical" href={canonicalUrl} />
       {shouldRenderAlternates

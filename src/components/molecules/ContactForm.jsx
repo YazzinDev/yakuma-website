@@ -1,8 +1,8 @@
-import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HCAPTCHA_SITE_KEY, WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT } from '../../config/contactForm';
 import Button from '../atoms/Button';
+import ActionButton from '../atoms/ActionButton';
 import TextInput from '../atoms/TextInput';
 
 const initialFormState = {
@@ -16,21 +16,28 @@ function cleanValue(value) {
   return value.trim();
 }
 
-export default function ContactForm() {
+export default function ContactForm({ variant = 'legacy' }) {
   const { i18n, t } = useTranslation('common');
   const fields = t('contact.fields', { returnObjects: true });
   const subjectPrefix = t('contact.subjectPrefix');
   const captchaRef = useRef(null);
+  const captchaTokenRef = useRef('');
+  const formRef = useRef(null);
+  const requestRef = useRef(null);
+  const [fieldErrors, setFieldErrors] = useState({});
   const [formData, setFormData] = useState(initialFormState);
-  const [captchaToken, setCaptchaToken] = useState('');
   const [isClient, setIsClient] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({ message: '', state: 'idle' });
+  const [shouldLoadCaptcha, setShouldLoadCaptcha] = useState(false);
+  const [CaptchaComponent, setCaptchaComponent] = useState(null);
+  const [submitStatus, setSubmitStatus] = useState({ messageKey: '', state: 'idle' });
   const isSubmitting = submitStatus.state === 'sending';
+  const SubmitButton = variant === 'pencil' ? ActionButton : Button;
 
   async function requestCaptchaPrompt() {
+    setShouldLoadCaptcha(true);
     const captcha = captchaRef.current;
 
-    document.querySelector('.contact-form__captcha')?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    formRef.current?.querySelector('.contact-form__captcha')?.scrollIntoView({ block: 'center', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
 
     if (typeof captcha?.execute !== 'function') {
       return;
@@ -45,30 +52,84 @@ export default function ContactForm() {
 
   useEffect(() => {
     const timer = window.setTimeout(() => setIsClient(true), 0);
-    return () => window.clearTimeout(timer);
+    return () => {
+      window.clearTimeout(timer);
+      requestRef.current?.abort();
+    };
   }, []);
+
+  useEffect(() => {
+    if (!isClient || shouldLoadCaptcha) return undefined;
+    const target = formRef.current?.querySelector('.contact-form__captcha');
+    if (!target || !window.IntersectionObserver) {
+      const timer = window.setTimeout(() => setShouldLoadCaptcha(true), 0);
+      return () => window.clearTimeout(timer);
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setShouldLoadCaptcha(true);
+    }, { rootMargin: '400px 0px' });
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [isClient, shouldLoadCaptcha]);
+
+  useEffect(() => {
+    if (!shouldLoadCaptcha) return undefined;
+    let active = true;
+    import('@hcaptcha/react-hcaptcha')
+      .then(({ default: component }) => {
+        if (active) setCaptchaComponent(() => component);
+      })
+      .catch(() => {
+        if (active) {
+          captchaTokenRef.current = '';
+          setSubmitStatus(current => current.state === 'sending' || current.state === 'success'
+            ? current
+            : { messageKey: 'contact.statusCaptchaUnavailable', state: 'error' });
+        }
+      });
+    return () => { active = false; };
+  }, [shouldLoadCaptcha]);
 
   function updateField(event) {
     const { name, value } = event.target;
     setFormData((current) => ({ ...current, [name]: value }));
-    if (submitStatus.message) {
-      setSubmitStatus({ message: '', state: 'idle' });
+    setFieldErrors(current => ({ ...current, [name]: undefined }));
+    if (submitStatus.messageKey) {
+      setSubmitStatus({ messageKey: '', state: 'idle' });
     }
+  }
+
+  function handleInvalid(event) {
+    event.preventDefault();
+    const control = event.currentTarget;
+    setFieldErrors(current => ({ ...current, [control.name]: t(control.validity.typeMismatch ? 'contact.invalidEmail' : 'contact.requiredField') }));
+    control.form?.querySelector(':invalid')?.focus();
+  }
+
+  function fieldFeedback(name) {
+    return { error: fieldErrors[name], onInvalid: handleInvalid, showRequired: variant === 'pencil' };
   }
 
   function resetCaptcha() {
     captchaRef.current?.resetCaptcha();
-    setCaptchaToken('');
+    captchaTokenRef.current = '';
+  }
+
+  function handleCaptchaVerify(token) {
+    captchaTokenRef.current = token;
+    setSubmitStatus(current => current.state === 'error' ? { messageKey: '', state: 'idle' } : current);
+  }
+
+  function handleCaptchaError() {
+    resetCaptcha();
+    setSubmitStatus(current => current.state === 'sending' || current.state === 'success'
+      ? current
+      : { messageKey: 'contact.statusCaptchaUnavailable', state: 'error' });
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
-
-    if (!captchaToken) {
-      setSubmitStatus({ message: t('contact.statusCaptcha'), state: 'error' });
-      await requestCaptchaPrompt();
-      return;
-    }
+    if (requestRef.current || isSubmitting) return;
 
     const values = {
       email: cleanValue(formData.email),
@@ -76,6 +137,17 @@ export default function ContactForm() {
       name: cleanValue(formData.name),
       project: cleanValue(formData.project),
     };
+    const blankFields = Object.keys(values).filter(name => !values[name]);
+    if (blankFields.length) {
+      setFieldErrors(Object.fromEntries(blankFields.map(name => [name, t('contact.requiredField')])));
+      formRef.current?.elements.namedItem(blankFields[0])?.focus();
+      return;
+    }
+    if (!captchaTokenRef.current) {
+      setSubmitStatus({ messageKey: 'contact.statusCaptcha', state: 'error' });
+      await requestCaptchaPrompt();
+      return;
+    }
     const subjectDetail = values.project || values.name;
     const subject = subjectDetail ? `${subjectPrefix}: ${subjectDetail}` : subjectPrefix;
     const requestData = new FormData(event.currentTarget);
@@ -87,17 +159,21 @@ export default function ContactForm() {
     requestData.set('email', values.email);
     requestData.set('project', values.project);
     requestData.set('message', values.message);
-    requestData.set('h-captcha-response', captchaToken);
+    requestData.set('h-captcha-response', captchaTokenRef.current);
     requestData.delete('g-recaptcha-response');
 
-    setSubmitStatus({ message: t('contact.statusSending'), state: 'sending' });
+    setSubmitStatus({ messageKey: 'contact.statusSending', state: 'sending' });
+    const request = new AbortController();
+    requestRef.current = request;
 
     try {
       const response = await fetch(WEB3FORMS_ENDPOINT, {
         body: requestData,
         method: 'POST',
+        signal: request.signal,
       });
       const data = await response.json().catch(() => ({ success: false }));
+      if (request.signal.aborted) return;
 
       if (!response.ok || !data.success) {
         throw new Error(data.message || 'Contact form submission failed.');
@@ -105,24 +181,30 @@ export default function ContactForm() {
 
       setFormData(initialFormState);
       resetCaptcha();
-      setSubmitStatus({ message: t('contact.statusSuccess'), state: 'success' });
+      setSubmitStatus({ messageKey: 'contact.statusSuccess', state: 'success' });
     } catch {
+      if (request.signal.aborted) return;
       resetCaptcha();
-      setSubmitStatus({ message: t('contact.statusError'), state: 'error' });
+      setSubmitStatus({ messageKey: 'contact.statusError', state: 'error' });
+    } finally {
+      if (requestRef.current === request) requestRef.current = null;
     }
   }
 
   return (
     <form
       action={WEB3FORMS_ENDPOINT}
-      className="contact-form"
+      className={`contact-form contact-form--${variant}`}
       method="post"
       onSubmit={handleSubmit}
+      ref={formRef}
+      aria-busy={isSubmitting}
     >
       <input name="access_key" type="hidden" value={WEB3FORMS_ACCESS_KEY} />
       <input name="subject" type="hidden" value={subjectPrefix} />
-      <input autoComplete="off" className="contact-form__honeypot" name="botcheck" tabIndex="-1" type="checkbox" />
+      <input autoComplete="off" className="contact-form__honeypot" name="botcheck" tabIndex="-1" type="checkbox" hidden aria-hidden="true" />
       <TextInput
+        {...fieldFeedback('name')}
         autoComplete="name"
         id="contact-name"
         label={fields.name.label}
@@ -133,6 +215,7 @@ export default function ContactForm() {
         value={formData.name}
       />
       <TextInput
+        {...fieldFeedback('email')}
         autoComplete="email"
         id="contact-email"
         inputMode="email"
@@ -145,6 +228,7 @@ export default function ContactForm() {
         value={formData.email}
       />
       <TextInput
+        {...fieldFeedback('project')}
         autoComplete="organization-title"
         id="contact-project"
         label={fields.project.label}
@@ -155,6 +239,7 @@ export default function ContactForm() {
         value={formData.project}
       />
       <TextInput
+        {...fieldFeedback('message')}
         autoComplete="off"
         id="contact-message"
         label={fields.message.label}
@@ -165,24 +250,26 @@ export default function ContactForm() {
         required
         value={formData.message}
       />
-      <Button disabled={isSubmitting} type="submit" variant="inverse">
-        {isSubmitting ? t('contact.statusSendingShort') : t('cta.sendInquiry')}
-      </Button>
       <div className="contact-form__captcha">
-        {isClient ? (
-          <HCaptcha
+        <div className="contact-form__captcha-widget">
+        {isClient && CaptchaComponent ? (
+          <CaptchaComponent
             languageOverride={i18n.resolvedLanguage === 'de' ? 'de' : 'en'}
-            onError={resetCaptcha}
+            onError={handleCaptchaError}
             onExpire={resetCaptcha}
-            onVerify={setCaptchaToken}
+            onVerify={handleCaptchaVerify}
             ref={captchaRef}
             sitekey={HCAPTCHA_SITE_KEY}
             theme="dark"
           />
         ) : null}
+        </div>
       </div>
+      <SubmitButton disabled={isSubmitting} type="submit" variant="inverse">
+        {isSubmitting ? t('contact.statusSendingShort') : t('cta.sendInquiry')}
+      </SubmitButton>
       <p aria-live="polite" className={`contact-form__status contact-form__status--${submitStatus.state}`} role="status">
-        {submitStatus.message}
+        {submitStatus.messageKey ? t(submitStatus.messageKey) : null}
       </p>
     </form>
   );

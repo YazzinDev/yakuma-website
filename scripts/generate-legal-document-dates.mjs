@@ -1,7 +1,8 @@
 import { execFileSync } from 'node:child_process';
-import { readdirSync, statSync, writeFileSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readLegalRevision } from '../src/legal/revision.js';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const legalRoot = join(projectRoot, 'src', 'legal');
@@ -16,6 +17,8 @@ function collectMarkdownFiles(directory) {
 }
 
 function getDocumentDate(filePath) {
+  const authored = readLegalRevision(readFileSync(filePath, 'utf8'));
+  if (authored) return authored.date;
   const fileRelativePath = relative(projectRoot, filePath);
 
   try {
@@ -33,10 +36,11 @@ function getDocumentDate(filePath) {
       return lastCommitDate.slice(0, 10);
     }
   } catch {
-    // New, uncommitted documents use their modification time until their first commit.
+    // Existing documents without an authored stand retain their last tracked file-change date.
+    // A failed Git lookup must not turn a checkout/build timestamp into a legal revision.
   }
 
-  return statSync(filePath).mtime.toISOString().slice(0, 10);
+  return null;
 }
 
 function addDocumentDate(dates, filePath) {
