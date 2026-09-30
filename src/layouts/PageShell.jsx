@@ -13,6 +13,7 @@ export default function PageShell({
   headerVariant = 'yakuma',
   language,
   mainClassName,
+  showFooter = true,
 }) {
   const { t } = useTranslation('common');
   const mainRef = useRef(null);
@@ -25,7 +26,7 @@ export default function PageShell({
       <main className={mainClassName} id="main-content" ref={mainRef}>
         {children}
       </main>
-      <SiteFooter language={language} scope={footerScope} />
+      {showFooter && <SiteFooter language={language} scope={footerScope} />}
     </>
   );
 }

@@ -63,6 +63,7 @@ export function buildLocalizedStaticRoutes() {
     `/${language}/games/hoshi/delete-account`,
     `/${language}/games/hoshi/news/the-first-boards`,
     `/${language}/404`,
+    `/${language}/games/hoshi/404`,
     ...legalDocuments.yakuma.map((docType) => `/${language}/legal/${docType}`),
     ...legalDocuments.hoshi.map((docType) => `/${language}/games/hoshi/legal/${docType}`),
   ]);

@@ -1,8 +1,7 @@
 import App from '../App';
 import RedirectToLocale from '../pages/RedirectToLocale';
-import RedirectUnsupportedLanguage from '../pages/RedirectUnsupportedLanguage';
+import RedirectToNotFound from '../pages/RedirectToNotFound';
 import { legalDocuments, neutralRouteAliases, supportedLanguages } from './localizedPaths';
-import { Navigate } from 'react-router-dom';
 
 const localizedRoutes = supportedLanguages.flatMap((language) => [
   {
@@ -41,6 +40,13 @@ const localizedRoutes = supportedLanguages.flatMap((language) => [
     },
   },
   {
+    path: `${language}/games/hoshi/404`,
+    lazy: async () => {
+      const { default: NotFoundPage } = await import('../pages/NotFoundPage');
+      return { Component: () => <NotFoundPage language={language} scope="hoshi" /> };
+    },
+  },
+  {
     path: `${language}/404`,
     lazy: async () => {
       const { default: NotFoundPage } = await import('../pages/NotFoundPage');
@@ -63,7 +69,7 @@ const localizedRoutes = supportedLanguages.flatMap((language) => [
   })),
   {
     path: `${language}/*`,
-    element: <Navigate replace to={`/${language}/404`} />,
+    element: <RedirectToNotFound />,
   },
 ]);
 
@@ -78,8 +84,7 @@ export const routes = [
         element: <RedirectToLocale target={target} />,
       })),
       ...localizedRoutes,
-      { path: ':unsupportedLanguage/*', element: <RedirectUnsupportedLanguage /> },
-      { path: '*', element: <RedirectUnsupportedLanguage /> },
+      { path: '*', element: <RedirectToNotFound /> },
     ],
   },
 ];

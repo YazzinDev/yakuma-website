@@ -86,8 +86,15 @@
     "pendingBody": "Dieses rechtliche Dokument wurde noch nicht bereitgestellt. Es wird absichtlich nicht automatisch erzeugt."
   },
   "notFound": {
-    "title": "SEITE NICHT GEFUNDEN",
-    "body": "Die angeforderte Seite existiert nicht.",
-    "home": "Zurück zu Yakuma"
+    "yakuma": {
+      "title": "SIGNAL VERLOREN.",
+      "body": "Dieser Link führt ins Leere.\nAuf der Startseite gibt es noch viel zu entdecken.",
+      "home": "ZUR STARTSEITE"
+    },
+    "hoshi": {
+      "title": "EIN TEIL FEHLT.",
+      "body": "Diese Seite ist kein Teil des Puzzles.\nZurück zu Hoshi geht’s hier.",
+      "home": "ZURÜCK ZU HOSHI"
+    }
   }
 }

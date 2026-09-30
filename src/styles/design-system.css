@@ -72,9 +72,7 @@
   body:has(.page--yakuma, .legal-pencil--yakuma) { background: var(--yk-bg); }
 
   .page--yakuma,
-  .legal-pencil--yakuma,
-  body:has(.page--yakuma, .legal-pencil--yakuma) .site-header--yakuma,
-  body:has(.page--yakuma, .legal-pencil--yakuma) .site-footer--yakuma {
+  .legal-pencil--yakuma {
     --pencil-unit: 1px;
     width: 1920px;
     max-width: 100%;
@@ -82,12 +80,22 @@
 
   .page--yakuma,
   .legal-pencil--yakuma,
-  body:has(.page--yakuma, .legal-pencil--yakuma) .site-footer--yakuma { margin-inline: auto; }
+  .site-footer { margin-inline: auto; }
 
-  body:has(.page--yakuma, .legal-pencil--yakuma) .site-header--yakuma {
-    left: 50%;
-    right: auto;
-    translate: -50% 0;
+  /* Backgrounds span the viewport; only the shared chrome content is capped. */
+  .site-header.site-header,
+  .site-footer.site-footer {
+    --pencil-unit: 1px;
+    --chrome-inset: max(56px, calc((100% - 1920px) / 2 + 56px));
+    width: 100%;
+    max-width: none;
+    padding-inline: var(--chrome-inset);
+  }
+
+  .site-header.site-header {
+    left: 0;
+    right: 0;
+    translate: none;
   }
 }
 

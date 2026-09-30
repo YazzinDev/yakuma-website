@@ -1,0 +1,103 @@
+/* Fixed CSS-pixel type follows the site's desktop layout and respects browser
+   zoom. Layout reflows at breakpoints instead of scaling the entire artboard. */
+.error-page { --pencil-unit: 1px; --error-header: 102px; position: relative; isolation: isolate; width: min(100%, 1920px); margin-inline: auto; min-height: 100svh; padding: var(--error-header) 64px 32px; display: grid; grid-template-rows: minmax(min-content, 1fr) auto; }
+.error-page--yakuma { background: var(--yk-bg); color: var(--yk-ink); }
+body:has(.error-page--yakuma) { background: var(--yk-bg); }
+body:has(.error-page--hoshi) { background: #f7f5f0; }
+.error-page--hoshi { background: #f7f5f0; color: var(--hs-ink); grid-template-rows: 1fr; padding-bottom: 32px; }
+.error-page__content { position: relative; z-index: 1; align-self: center; justify-self: center; display: flex; flex-direction: column; align-items: center; gap: 24px; width: min(100%, 960px); padding-block: 48px; text-align: center; }
+.error-page--hoshi .error-page__content { width: min(100%, 1400px); }
+.error-page__number { font: 400 224px/1.12 var(--font-heading); }
+.error-page--yakuma h1 { margin: 0; font: 400 88px/1.15 var(--font-heading); }
+.error-page__description { margin: 0; color: var(--yk-muted); font: 400 24px/1.6 var(--font-mono); white-space: pre-line; }
+.error-page .hoshi-text { white-space: pre-line; }
+.error-page__home { margin-top: 12px; }
+.error-page .action-link { --action-unit: 1px; max-width: 100%; }
+.error-page .button--hoshi { width: 380px; max-width: 100%; min-height: 72px; margin-top: 8px; background: var(--hs-accent); border: 0; padding: 12px 20px; font: 600 22px/1.4 var(--font-body); letter-spacing: 0; }
+.error-page .button--hoshi:hover { filter: brightness(1.12); }
+.puzzle-error-mark { display: flex; gap: 24px; align-items: center; color: var(--hs-primary); font: 900 214px/1.2 var(--font-hoshi); }
+.puzzle-error-mark .micrographic { width: 208px; height: 208px; color: inherit; }
+.error-register, .error-signal, .error-page__closing { color: var(--yk-accent); font: 400 14px/1.4 var(--font-mono); }
+.error-register { position: absolute; top: 208px; left: 64px; width: 380px; padding: 24px; background: var(--yk-surface); }
+.error-register__header { display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--yk-line); padding-bottom: 20px; }
+.error-register__detail { display: flex; flex-direction: column; gap: 20px; padding-top: 20px; }
+.error-register strong { font: 400 44px/1.2 var(--font-heading); }
+.error-register .micrographic { width: 202px; height: 24px; transform: rotate(180deg); }
+.error-register p, .error-signal p { margin: 0; }
+.error-register__detail p { display: grid; gap: 8px; }
+.error-signal__barcode { position: absolute; right: 64px; top: 190px; text-align: right; }
+.error-signal__barcode .micrographic { width: 233px; height: 28px; margin: 0 0 20px auto; }
+.error-signal__carrier { position: absolute; right: 64px; bottom: 140px; text-align: right; }
+.error-signal__symbols { display: flex; justify-content: flex-end; align-items: center; gap: 32px; margin-bottom: 24px; }
+.error-signal__symbols .micrographic { width: 64px; height: 64px; }
+.error-signal__symbols .micrographic--return-route { width: 80px; }
+.error-signal__standby { position: absolute; left: 64px; bottom: 140px; }
+.error-signal { display: contents; }
+.error-signal__mobile { display: none; }
+.error-page__closing { width: 100%; padding-top: 22px; border-top: 1px solid var(--yk-line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.error-page__triangle { position: absolute; z-index: 0; width: 141px; aspect-ratio: 1; clip-path: polygon(50% 0, 100% 100%, 0 100%); pointer-events: none; }
+.error-page__triangle--pale { background: #d7efea; left: 8%; top: 30%; transform: rotate(40deg); }
+.error-page__triangle--mint { background: #8ab8ae; right: 8%; bottom: 12%; transform: rotate(80deg); }
+/* Collapse side diagnostics before they compete with centered recovery copy. */
+@media (max-width: 1700px) {
+  .error-register { width: auto; padding: 0; background: none; }
+  .error-register__header { border: 0; padding: 0; }
+  .error-register__header > span:last-child, .error-register__detail, .error-signal__standby { display: none; }
+  .error-signal__barcode { top: 154px; }
+  .error-signal__desktop { display: none; }
+  .error-page--yakuma .error-page__content { width: min(100%, 860px); }
+  .error-page__number { font-size: 160px; }
+  .error-page--yakuma h1, .error-page--hoshi .hoshi-text--display { font-size: 64px; }
+  .puzzle-error-mark { font-size: 160px; }
+  .puzzle-error-mark .micrographic { width: 156px; height: 156px; }
+  .error-page__triangle { width: 100px; }
+}
+@media (max-width: 1100px) {
+  .error-page { --error-header: 96px; padding-inline: 6%; padding-bottom: 24px; grid-template-rows: minmax(min-content, 1fr) auto auto; }
+  body:has(.error-page) .site-header:not(.site-header--menu-open) { min-height: 80px; padding-block: 12px; }
+
+  .error-page--hoshi { grid-template-rows: 1fr; }
+  .error-page__content, .error-page--hoshi .error-page__content { width: min(100%, 714px); gap: 24px; padding-block: 64px; }
+  .error-page__number { font-size: 144px; }
+  .error-page--yakuma h1, .error-page--hoshi .hoshi-text--display { font-size: 48px; }
+  .error-page__description, .error-page--hoshi .hoshi-text--lead { font-size: 20px; line-height: 1.55; }
+  .error-page .action-link { --action-unit: 1px; }
+  .error-register { top: 112px; left: 6%; font-size: 14px; }
+  .error-signal { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 32px; font-size: 12px; }
+  .error-signal__barcode, .error-signal__carrier { position: static; text-align: left; }
+  .error-signal__barcode .micrographic { width: 160px; height: 24px; margin: 0 0 16px; }
+  .error-signal__mobile { display: block; }
+  .error-signal__symbols { gap: 16px; margin: 0; }
+  .error-signal__symbols .micrographic { width: 40px; height: 40px; }
+  .error-signal__symbols .micrographic--return-route { width: 52px; }
+  .error-page__closing { font-size: 12px; padding-top: 16px; }
+  .error-page__closing-extra { display: none; }
+  .error-page--hoshi .hoshi-text--display { max-width: 18ch; text-wrap: balance; }
+  .error-page .button--hoshi { width: 320px; min-height: 56px; font-size: 18px; }
+  .puzzle-error-mark { font-size: 120px; gap: 16px; }
+  .puzzle-error-mark .micrographic { width: 116px; height: 116px; }
+  .error-page__triangle--pale { left: 6%; top: auto; bottom: 6%; transform: rotate(30deg); }
+  .error-page__triangle--mint { right: 6%; top: 112px; bottom: auto; transform: rotate(-14deg); }
+}
+@media (max-width: 600px) {
+  .error-page__content, .error-page--hoshi .error-page__content { gap: 20px; padding-block: 56px; }
+  .error-page__number { font-size: 112px; }
+  .error-page--yakuma h1 { font-size: 36px; }
+  .error-page--hoshi .hoshi-text--display { font-size: 32px; max-width: 13ch; }
+  .error-page__description, .error-page--hoshi .hoshi-text--lead { font-size: 16px; }
+  .error-page .action-link { --action-unit: 0.85px; }
+  .error-page .button--hoshi { width: 260px; min-height: 52px; font-size: 16px; }
+  .puzzle-error-mark { font-size: 88px; gap: 12px; }
+  .puzzle-error-mark .micrographic { width: 84px; height: 84px; }
+  .error-signal { font-size: 10px; }
+  .error-signal__barcode .micrographic { width: 124px; height: 20px; }
+  .error-signal__symbols { gap: 10px; }
+  .error-signal__symbols .micrographic { width: 30px; height: 30px; }
+  .error-signal__symbols .micrographic--return-route { width: 40px; }
+  .error-page__closing { font-size: 10px; }
+  .error-page__triangle { width: 64px; }
+}
+
+@media (min-width: 1101px) {
+  body:has(.error-page) .site-header { --pencil-unit: 1px; }
+}

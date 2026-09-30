@@ -1,3 +1,5 @@
+import { errorMicrographics } from './errorMicrographics';
+
 // Native path geometry from the canonical Pencil atoms, not raster exports.
 const markers = {
   frequency: {
@@ -14,7 +16,7 @@ const markers = {
 };
 
 export default function Micrographic({ name = 'frequency', className = '', preserveAspectRatio = 'xMidYMid meet' }) {
-  const graphic = markers[name];
+  const graphic = markers[name] ?? errorMicrographics[name];
   if (!graphic) throw new Error(`Unknown micrographic: ${name}`);
   return (
     <svg aria-hidden="true" focusable="false" className={`micrographic micrographic--${name} ${className}`.trim()}

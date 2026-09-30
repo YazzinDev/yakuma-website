@@ -1,6 +1,8 @@
 import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { buildStaticRoutes } from '../src/routes/localizedPaths.js';
+import { getErrorRoute } from '../src/routes/errorRoutes.js';
+import { defaultLanguage, supportedLanguages } from '../src/i18n/languages.js';
 
 const rootDir = resolve(import.meta.dirname, '..');
 const distDir = resolve(rootDir, 'dist');
@@ -54,3 +56,10 @@ for (const route of buildStaticRoutes()) {
 }
 
 await copyHtml(resolve(distDir, 'de', '404.html'), resolve(distDir, '404.html'));
+
+// GitHub Pages serves this document for every missing URL. Resolve the branded,
+// localized static recovery page before loading the copied page's app entry.
+const fallbackPath = resolve(distDir, '404.html');
+const fallback = await readFile(fallbackPath, 'utf8');
+const recovery = `const defaultLanguage=${JSON.stringify(defaultLanguage)};const supportedLanguages=${JSON.stringify(supportedLanguages)};const target=(${getErrorRoute.toString()})(location.pathname);if(location.pathname!==target)location.replace(target);`;
+await writeFile(fallbackPath, fallback.replace('<head>', `<head><script>${recovery}</script>`), 'utf8');

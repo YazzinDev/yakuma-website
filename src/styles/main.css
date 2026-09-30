@@ -2792,7 +2792,7 @@ a {
 .site-header--hoshi .site-header__actions { gap: 28px; }
 
 @media (min-width: 1101px) and (max-width: 1500px) {
-  .site-header--hoshi { grid-template-columns: minmax(120px, 1fr) auto minmax(460px, 1fr); gap: 1rem; padding-inline: 2rem; }
+  .site-header--hoshi { grid-template-columns: minmax(120px, 1fr) auto minmax(460px, 1fr); gap: 1rem; }
   .site-header--hoshi .site-header__actions { gap: 16px; }
 }
 
@@ -3047,9 +3047,9 @@ a {
 }
 
 @media (min-width: 800px) and (max-width: 1100px) and (min-aspect-ratio: 3 / 4) {
-  .site-header:not(.site-header--hoshi).site-header--yakuma,
+  .site-header,
   .page--yakuma,
-  .site-footer--yakuma { --pencil-unit: calc(100vw / 1920); }
+  .site-footer { --pencil-unit: calc(100vw / 1920); }
 
   .site-header:not(.site-header--hoshi).site-header--yakuma { min-height: 80px; }
   .page--yakuma .yakuma-hero { min-height: max(100svh, 760px); }

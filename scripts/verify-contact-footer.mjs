@@ -7,6 +7,10 @@ const root = resolve(import.meta.dirname, '..');
 for (const route of buildStaticRoutes().filter(route => /^\/(de|en)(\/|$)/.test(route))) {
   const html = readFileSync(resolve(root, `dist${route}.html`), 'utf8');
   const footers = [...html.matchAll(/<footer\b[^>]*>([\s\S]*?)<\/footer>/g)];
+  if (route.endsWith('/404')) {
+    assert.equal(footers.length, 0, `${route}: recovery design omits the site footer.`);
+    continue;
+  }
   assert.equal(footers.length, 1, `${route}: exactly one shared footer is required.`);
   assert(html.indexOf('</main>') < html.indexOf('<footer'), `${route}: footer must be separate from page sections.`);
   const footer = footers[0][0];

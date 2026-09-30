@@ -13,6 +13,7 @@ import './verify-yakuma-faq.mjs';
 import './verify-contact-footer.mjs';
 import './verify-legal-revisions.mjs';
 import './verify-legal-model.mjs';
+import './verify-error-routing.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const dist = resolve(root, 'dist');
@@ -94,7 +95,7 @@ function checkLayers() {
   const shell = read(resolve(root, 'src/layouts/PageShell.jsx'));
   for (const name of ['SkipLink', 'SiteHeader', 'SiteFooter']) assert(shell.includes(name), `PageShell missing ${name}`);
   for (const file of filesIn(resolve(root, 'src/pages')).filter(file => file.endsWith('.jsx'))) {
-    if (/RedirectToLocale|RedirectUnsupportedLanguage/.test(file)) continue;
+    if (/RedirectToLocale|RedirectUnsupportedLanguage|RedirectToNotFound/.test(file)) continue;
     assert(read(file).includes('../layouts/PageShell'), `Routed page bypasses PageShell: ${file}`);
   }
 }
@@ -170,10 +171,11 @@ for (const route of routes) {
     assert(link.includes(`media="${expectedMedia}"`), `Globe image preload has wrong viewport media in ${route}`);
   }
   if (!aliases.has(route)) {
-    for (const needle of ['class="skip-link"', '<header class="site-header', 'id="main-content"', '<footer class="site-footer', 'id="site-mobile-navigation"', 'class="language-switcher"']) {
+    for (const needle of ['class="skip-link"', '<header class="site-header', 'id="main-content"', 'id="site-mobile-navigation"', 'class="language-switcher"']) {
       assert(html.includes(needle), `Shared shell missing ${needle} in ${route}`);
     }
-    assert(count(html, /<footer class="site-footer/g) === 1, `Expected one footer in ${route}`);
+    const expectedFooters = route.endsWith('/404') ? 0 : 1;
+    assert(count(html, /<footer class="site-footer/g) === expectedFooters, `Expected ${expectedFooters} footer(s) in ${route}`);
     assert(count(html, /<title\b/g) === 1, `Expected one title in ${route}`);
     assert(html.includes(`rel="canonical" href="${siteUrl}${route}"`), `Canonical missing in ${route}`);
   }
@@ -244,7 +246,18 @@ for (const file of ['public/CNAME', 'dist/CNAME']) {
   assert(read(resolve(root, file)).trim() === new URL(siteUrl).hostname, `CNAME mismatch: ${file}`);
 }
 for (const file of ['public/.nojekyll', 'dist/.nojekyll']) assert(existsSync(resolve(root, file)), `Missing ${file}`);
-assert(readRoute('/404') === readRoute('/de/404'), 'Static host 404 differs from German 404');
+const staticFallback = readRoute('/404');
+assert(staticFallback.includes('location.replace(target)'), 'Static host 404 must resolve the branded recovery route');
+assert(staticFallback.replace(/<head><script>[\s\S]*?<\/script>/, '<head>') === readRoute('/de/404'), 'Static host 404 shell differs from German 404');
+for (const language of ['de', 'en']) {
+  for (const scope of ['yakuma', 'hoshi']) {
+    const route = `/${language}${scope === 'hoshi' ? '/games/hoshi' : ''}/404`;
+    const html = readRoute(route);
+    assert(html.includes(`error-page--${scope}`), `Wrong error page brand: ${route}`);
+    assert(html.includes('noindex, nofollow'), `Error page must not be indexed: ${route}`);
+    assert(!html.includes('<footer'), `Error design has no site footer: ${route}`);
+  }
+}
 
 if (failures.length) {
   console.error(`Current build verification failed with ${failures.length} issue(s):`);
