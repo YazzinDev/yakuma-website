@@ -28,7 +28,6 @@ const targetSelector = [
   '.featured-project-window',
   '.project-annotation',
   '.hoshi-about__banner',
-  '.hoshi-about__triangle',
 ].join(',');
 
 function getDirectRevealTargets(section) {

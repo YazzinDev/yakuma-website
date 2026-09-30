@@ -1,72 +1,77 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import CapabilityWindow from '../molecules/CapabilityWindow';
 
+const options = {
+  loop: true,
+  align: 'center',
+  startIndex: 1,
+  skipSnaps: true,
+  breakpoints: {
+    '(min-width: 1101px)': { active: false },
+    '(prefers-reduced-motion: reduce)': { duration: 0 },
+  },
+};
+const plugins = [WheelGesturesPlugin({ forceWheelAxis: 'x' })];
+
 export default function CapabilityCarousel({ items, language }) {
+  const [viewportRef, carousel] = useEmblaCarousel(options, plugins);
   const [active, setActive] = useState(1);
   const [mobile, setMobile] = useState(false);
-  const [direction, setDirection] = useState(0);
-  const pointer = useRef(null);
-  const moved = useRef(false);
-  const timer = useRef(null);
-  const count = items.length;
+
   useEffect(() => {
     const media = matchMedia('(max-width: 1100px)');
     const update = () => setMobile(media.matches);
     update();
     media.addEventListener('change', update);
-    return () => { media.removeEventListener('change', update); clearTimeout(timer.current); };
+    return () => media.removeEventListener('change', update);
   }, []);
-  function advance(step) {
-    if (direction) return;
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setActive(current => (current + step + count) % count);
-      return;
-    }
-    setDirection(step);
-    timer.current = setTimeout(() => {
-      setActive(current => (current + step + count) % count);
-      setDirection(0);
-    }, 240);
-  }
-  function endSwipe(event) {
-    if (!pointer.current || pointer.current.id !== event.pointerId) return;
-    const dx = event.clientX - pointer.current.x;
-    const dy = event.clientY - pointer.current.y;
-    pointer.current = null;
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
-      moved.current = true;
-      advance(dx < 0 ? 1 : -1);
-    }
-  }
+
+  useEffect(() => {
+    if (!carousel) return;
+    const update = () => setActive(carousel.selectedScrollSnap());
+    update();
+    carousel.on('select', update).on('reInit', update);
+    return () => { carousel.off('select', update).off('reInit', update); };
+  }, [carousel]);
+
   const label = language === 'de' ? 'Unsere Disziplinen' : 'Our disciplines';
+  const selectedItem = active % items.length;
+  function selectItem(index) {
+    if (!carousel) return;
+    const count = carousel.scrollSnapList().length;
+    const current = carousel.selectedScrollSnap();
+    const distance = target => Math.min(Math.abs(target - current), count - Math.abs(target - current));
+    const target = [index, index + items.length].sort((a, b) => distance(a) - distance(b))[0];
+    carousel.scrollTo(target, matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
   return <div className="capability-carousel" role={mobile ? 'region' : undefined} aria-roledescription={mobile ? 'carousel' : undefined} aria-label={mobile ? label : undefined}
     onKeyDown={event => {
-      if (!mobile || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+      if (!mobile || !carousel || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
       event.preventDefault();
-      const step = event.key === 'ArrowRight' ? 1 : -1;
-      if (event.target.closest('.capability-carousel__slide')) {
-        event.currentTarget.querySelectorAll('.capability-carousel__pagination button')[(active + step + count) % count]?.focus();
+      const next = event.key === 'ArrowRight';
+      const jump = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (next) carousel.scrollNext(jump);
+      else carousel.scrollPrev(jump);
+      if (event.target.closest('.capability-carousel__pagination')) {
+        event.currentTarget.querySelectorAll('.capability-carousel__pagination button')[carousel.selectedScrollSnap() % items.length]?.focus();
       }
-      advance(step);
     }}>
-    <div className={`capability-carousel__viewport${direction ? ' is-moving' : ''}`} style={{ '--direction': direction }}
-      onPointerDown={event => {
-        if (!mobile || !event.isPrimary || event.button !== 0) return;
-        moved.current = false;
-        pointer.current = { id: event.pointerId, x: event.clientX, y: event.clientY };
-      }} onPointerUp={endSwipe} onPointerCancel={() => { pointer.current = null; }}
-      onClickCapture={event => { if (moved.current) { event.preventDefault(); moved.current = false; } }}>
-      {items.map((item, index) => {
-        const offset = ((index - active + count + 1) % count) - 1;
-        return <div key={item.id} className="capability-carousel__slide" style={{ '--offset': offset }} aria-hidden={mobile && index !== active ? true : undefined}>
+    <div className="capability-carousel__viewport" ref={viewportRef} tabIndex={mobile ? 0 : undefined} aria-label={mobile ? label : undefined}>
+      <div className="capability-carousel__track">
+        {/* A second sequence keeps the loop filled even with the narrower tablet cards. */}
+        {[...items, ...items].map((item, index) => <div key={`${item.id}-${index}`} className={`capability-carousel__slide${index >= items.length ? ' capability-carousel__slide--copy' : ''}`} role={mobile ? 'group' : undefined}
+          aria-hidden={mobile && index !== active ? true : undefined}
+          aria-roledescription={mobile ? 'slide' : undefined} aria-label={mobile ? `${index % items.length + 1} / ${items.length}` : undefined}>
           <CapabilityWindow item={item} />
-        </div>;
-      })}
+        </div>)}
+      </div>
     </div>
     <div className="capability-carousel__pagination" aria-label={label}>
-      {items.map((item, index) => <button key={item.id} type="button" aria-label={item.title.replace('\n', ' ')} aria-current={index === active ? 'true' : undefined}
-        onClick={() => { clearTimeout(timer.current); setDirection(0); setActive(index); }}><span /></button>)}
+      {items.map((item, index) => <button key={item.id} type="button" aria-label={item.title.replace('\n', ' ')} aria-current={index === selectedItem ? 'true' : undefined}
+        onClick={() => selectItem(index)}><span /></button>)}
     </div>
-    <span className="sr-only" aria-live="polite" aria-atomic="true">{mobile ? items[active].title.replace('\n', ' ') : ''}</span>
+    <span className="sr-only" aria-live="polite" aria-atomic="true">{mobile ? items[selectedItem]?.title.replace('\n', ' ') : ''}</span>
   </div>;
 }

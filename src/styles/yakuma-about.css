@@ -15,8 +15,9 @@
 .garment-label__barcode { display: flex; align-items: center; justify-content: space-between; margin-top: calc(20 * var(--pencil-unit)); }
 .garment-label__barcode img { width: calc(260 * var(--pencil-unit)); height: calc(20 * var(--pencil-unit)); object-fit: fill; }
 .capability-carousel { margin-top: calc(87 * var(--pencil-unit)); }
-.capability-carousel__viewport { display: flex; justify-content: space-between; gap: calc(60 * var(--pencil-unit)); }
+.capability-carousel__track { display: flex; justify-content: space-between; gap: calc(60 * var(--pencil-unit)); }
 .capability-carousel__slide { width: calc(480 * var(--pencil-unit)); flex-shrink: 0; }
+.capability-carousel__slide--copy { display: none; }
 .capability-carousel__slide:nth-child(2) { margin-top: calc(24 * var(--pencil-unit)); }
 .capability-window { --window-unit: var(--pencil-unit); position: relative; width: 100%; min-height: calc(370 * var(--window-unit)); border: 1px solid var(--yk-muted); background: var(--yk-surface); }
 .window-chrome { height: calc(48 * var(--window-unit)); display: flex; align-items: center; gap: calc(8 * var(--window-unit)); padding-inline: calc(14 * var(--window-unit)) calc(10 * var(--window-unit)); border-bottom: 1px solid var(--yk-muted); color: var(--yk-accent); font: 400 calc(13 * var(--window-unit))/1.4 var(--font-mono); white-space: nowrap; }
@@ -41,10 +42,16 @@
   .yakuma-about__intro > p { margin-top: calc(48 * var(--pencil-unit)); max-width: calc(920 * var(--pencil-unit)); font-size: max(16px, calc(34 * var(--pencil-unit))); line-height: 1.35; }
   .garment-label { display: none; }
   .capability-carousel { margin-top: calc(127 * var(--pencil-unit)); }
-  .capability-carousel__viewport { display: block; position: relative; height: max(calc(630 * var(--pencil-unit)), 295px); overflow: clip; touch-action: pan-y; }
-  .capability-carousel__slide { position: absolute; top: 0; left: calc(50% - 408 * var(--pencil-unit)); width: calc(816 * var(--pencil-unit)); transform: translateX(calc((var(--offset) - var(--direction)) * 848 * var(--pencil-unit))); }
+  .capability-carousel__viewport { overflow: hidden; touch-action: pan-y pinch-zoom; cursor: grab; }
+  .capability-carousel__viewport .capability-window { -webkit-user-select: none; user-select: none; }
+  .capability-carousel__viewport:active { cursor: grabbing; }
+  .capability-carousel__viewport:focus-visible { outline: 2px solid var(--yk-accent); outline-offset: -2px; }
+  .capability-carousel__track { justify-content: flex-start; gap: 0; align-items: flex-start; min-height: max(calc(630 * var(--pencil-unit)), 295px); }
+  /* Two sequences fill both sides even with narrower tablet cards. End spacing
+     belongs to each slide so it wraps with Embla's seamless loop. */
+  .capability-carousel__slide { flex: 0 0 calc(816 * var(--pencil-unit)); min-width: 0; margin-right: calc(32 * var(--pencil-unit)); }
+  .capability-carousel__slide--copy { display: block; }
   .capability-carousel__slide:nth-child(2) { margin-top: 0; }
-  .capability-carousel__viewport.is-moving .capability-carousel__slide { transition: transform 240ms ease-out; }
   .capability-window { --window-unit: calc(1.7 * var(--pencil-unit)); }
   .capability-carousel__pagination { display: flex; justify-content: center; gap: calc(20 * var(--pencil-unit)); margin-top: calc(52 * var(--pencil-unit)); }
   .capability-carousel__pagination button { display: grid; place-items: center; width: max(44px, calc(40 * var(--pencil-unit))); height: max(44px, calc(40 * var(--pencil-unit))); padding: 0; border: 0; background: none; cursor: pointer; }

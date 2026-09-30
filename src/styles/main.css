@@ -2822,9 +2822,7 @@ a {
 .hoshi-about p { font-size: clamp(1rem, 1.25vw, 1.5rem); line-height: 1.6; margin: 1.55em 0 0; }
 .hoshi-about .store-badge-row { gap: 20px; justify-content: flex-start; margin-top: 32px; }
 .hoshi-about__banner { aspect-ratio: 740 / 361; border: 1px solid #ded4c8; border-radius: 10px; box-shadow: 0 20px 36px #1f1a1724; display: block; height: auto; max-width: 740px; width: 100%; }
-.hoshi-about__triangle { display: none; }
 .hoshi-about--download { background: #ddebe6; }
-.hoshi-about--download .hoshi-about__triangle { background: #f7f5f0; }
 
 .hoshi-how-to {
   background: #f7f5f0;
@@ -2936,7 +2934,6 @@ a {
   .hoshi-about--download .store-badge-row { top: 79%; }
   .hoshi-about .store-badge[data-store="app-store"] { width: 35vw; }
   .hoshi-about .store-badge[data-store="google-play"] { width: 39.3vw; }
-  .hoshi-about__triangle { background: #d7efea; clip-path: polygon(50% 0, 100% 100%, 0 100%); display: block; height: 23vw; left: -6%; position: absolute; top: 74.9%; transform: rotate(-20deg); width: 23vw; }
 
   .hoshi-how-to { display: block; height: max(650px, 177.78vw); min-height: 0; padding: 0; position: relative; }
   .hoshi-how-to__intro { left: 6%; max-width: none; position: absolute; right: 6%; text-align: left; top: 12.4%; }
@@ -3016,7 +3013,6 @@ a {
   .hoshi-about .store-badge-row { gap: 12px; left: auto; margin-top: 1.5rem; position: static; top: auto; }
   .hoshi-about .store-badge[data-store="app-store"] { width: 140px; }
   .hoshi-about .store-badge[data-store="google-play"] { width: 157px; }
-  .hoshi-about__triangle { display: none; }
 
   .hoshi-how-to { display: flex; gap: 40px; height: auto; min-height: 650px; padding: 100px 6%; }
   .hoshi-how-to__intro { left: auto; position: static; right: auto; text-align: center; top: auto; }

@@ -21,7 +21,6 @@ export default function HoshiAbout({ variant = 'about' }) {
         </div>
         <img alt={t('images.featureBanner')} className="hoshi-about__banner" loading="lazy" src={featureBanner} />
       </div>
-      <span aria-hidden="true" className="hoshi-about__triangle" />
     </section>
   );
 }
