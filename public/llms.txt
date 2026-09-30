@@ -6,13 +6,13 @@ The site is available in English and German. The links below point to the Englis
 
 ## Studio and services
 
-- [Yakuma](https://www.yakuma.de/en): Studio overview, contact information, services, and featured projects.
+- [Yakuma](https://yakuma.de/en): Studio overview, contact information, services, and featured projects.
 
 ## Hoshi: Star Sudoku
 
-- [Hoshi: Star Sudoku](https://www.yakuma.de/en/games/hoshi): Game overview, gameplay, triangle-board Sudoku mechanics, guided tactics, progression, and FAQs.
-- [Download Hoshi](https://www.yakuma.de/en/games/hoshi/download): Current iOS and Android download information. Official store links are still being prepared.
+- [Hoshi: Star Sudoku](https://yakuma.de/en/games/hoshi): Game overview, gameplay, triangle-board Sudoku mechanics, guided tactics, progression, and FAQs.
+- [Download Hoshi](https://yakuma.de/en/games/hoshi/download): Current iOS and Android download information. Official store links are still being prepared.
 
 ## Optional
 
-- [Hoshi news](https://www.yakuma.de/en/games/hoshi/news/the-first-boards): The first playable board set and early release information; timing is provisional.
+- [Hoshi news](https://yakuma.de/en/games/hoshi/news/the-first-boards): The first playable board set and early release information; timing is provisional.

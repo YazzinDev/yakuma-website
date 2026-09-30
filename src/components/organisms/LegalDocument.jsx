@@ -90,7 +90,10 @@ function renderInlineToken(token, key, language, allowLinks) {
   }
 
   if (/^https?:\/\//i.test(token)) {
-    return allowLinks ? renderLink(token, token, key, language) : token;
+    const href = token.replace(/[.,;:!?]+$/, '');
+    return allowLinks
+      ? [renderLink(href, href, key, language), token.slice(href.length)]
+      : token;
   }
 
   if (/^[\w.+-]+@[\w.-]+\.[a-z]{2,}$/i.test(token)) {

@@ -1,2 +1,2 @@
 export const siteName = 'Yakuma';
-export const siteUrl = 'https://www.yakuma.de';
+export const siteUrl = 'https://yakuma.de';
